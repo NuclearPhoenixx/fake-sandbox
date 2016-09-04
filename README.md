@@ -61,6 +61,8 @@ Now click any key to start the installation.
 If you no longer want to run this program, just download the ```uninstall.bat``` file from the ```installer``` directory.
 Then run it and follow the instructions (well, there arent any. You just have to press any key twice.)
 
+![uninstall](http://www.aperturegds.tk/host/uninstall.png)
+
 ----------------------------------------
 
 Tested on following Windows versions:
