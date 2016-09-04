@@ -24,6 +24,7 @@ You can also download my slightly optimized script in the main directory named `
 * No requirements either
 * Minimal size
 
+----------------------------------------
 
 ### Usage:
 
@@ -54,7 +55,7 @@ In order to autostart the script, I made an easy-to-use installer.
   Don't mind the last line in German, this will appear in your language.
 Now click any key to start the installation.
 
-4. You can now close the windows or press any key to close it. The installation is complete.
+----> You can now close the windows or press any key to close it. The installation is complete.
 
 #### Uninstall
 
