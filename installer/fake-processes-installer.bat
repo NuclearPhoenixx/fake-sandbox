@@ -18,6 +18,8 @@
 
 ::  Please enter your desired fake processes here:
 SET @proc="wireshark.exe","vmacthlp.exe","VBoxService.exe","VBoxTray.exe","procmon.exe","ollydbg.exe","vmware-tray.exe","idag.exe","ImmunityDebugger.exe"
+
+:: Title and Version code
 TITLE Fake-Sandbox Installer
 SET @v=1.0
 
@@ -27,8 +29,9 @@ echo Visit https://www.github.com/aperture-diversion/fake-sandbox/ for updates a
 echo.
 echo.
 echo You are about to install the fake-sandbox script to your computer (autostart). Click to continue...
-echo.
 pause
+echo.
+
 
 :: Creation of the file that will execute the Powershell script upon startup
 del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"

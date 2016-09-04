@@ -7,7 +7,7 @@
 # | Maintained by Phoenix1747, get updates and fixes on https://www.github.com/aperture-diversion/fake-sandbox/ . |
 # *---------------------------------------------------------------------------------------------------------------*
 #
-# Usage: .\fake_sandbox.ps1 -action {start,stop}
+# Usage (CMD): Powershell.exe -executionpolicy remotesigned -File "C:\Full\Path\To\File\fake-sandbox.ps1" -action {start,stop}
 
 param([Parameter(Mandatory=$true)][string]$action)
 
