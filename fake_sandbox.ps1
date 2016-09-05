@@ -43,5 +43,5 @@ elseif ($action -ceq "stop") {
     }
 }
 else {
-    write-host "Bad usage: need '-action start' or '-action stop' parameter"
+    write-host "Bad usage: need '-action start' or '-action stop' parameter!"
 }
