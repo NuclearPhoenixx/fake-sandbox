@@ -19,10 +19,12 @@
 ::  Please enter your desired fake processes here:
 SET @proc="wireshark.exe","vmacthlp.exe","VBoxService.exe","VBoxTray.exe","procmon.exe","ollydbg.exe","vmware-tray.exe","idag.exe","ImmunityDebugger.exe"
 
+:: -------------------------------------------------------------------------------------------------------------------------------
 :: Title and Version code
 TITLE Fake-Sandbox Installer
 SET @v=1.1
 
+:: -------------------------------------------------------------------------------------------------------------------------------
 :: Just some nice user interface things
 echo Fake-Sandbox installation script. Version %@v%, 2016.
 echo Visit https://www.github.com/aperture-diversion/fake-sandbox/ for updates and fixes.
@@ -32,7 +34,7 @@ echo You are about to install the fake-sandbox script to your computer (autostar
 pause > NUL
 echo.
 
-
+:: -------------------------------------------------------------------------------------------------------------------------------
 :: Creation of the file that will execute the Powershell script upon startup
 del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 
@@ -42,9 +44,10 @@ echo :: available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo TITLE Fake-Sandbox is starting...>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo start Powershell.exe -executionpolicy remotesigned -File "%appdata%\Fake-Sanbox Processes\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo start Powershell.exe -executionpolicy remotesigned -File "%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 
+:: -------------------------------------------------------------------------------------------------------------------------------
 :: Creation of the fake-sandbox.ps1 script in the new directory %appdata%\Fake-Sanbox Processes\
 del "%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1"
 mkdir "%appdata%\Fake-Sandbox Processes\"
@@ -70,7 +73,7 @@ echo      }>>"%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1"
 echo.>>"%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1"
 echo     Set-Location $oldpwd>>"%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1"
 
-
+:: -------------------------------------------------------------------------------------------------------------------------------
 :: End of file installation
 :: <---- delete this line and add "pause" instead to enable debugging.
 echo.
