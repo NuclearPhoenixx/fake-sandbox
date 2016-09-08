@@ -1,7 +1,7 @@
 # fake-sandbox processes
 
 This small script will simulate fake processes of analysis sandbox/VM software that some malware will try to evade.
-You can download the original script (made by x0rz) in the ```orig```  directory.
+You can download the original script (made by @x0rz) in the ```orig```  directory.
 
 You can also download my slightly optimized script in the main directory. The file is named ```fake-sandbox.ps1```.
 
