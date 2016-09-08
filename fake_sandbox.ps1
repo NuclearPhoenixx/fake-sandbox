@@ -11,10 +11,10 @@
 
 param([Parameter(Mandatory=$true)][string]$action)
 
-$fakeProcesses = @("wireshark.exe", "vmacthlp.exe", "VBoxService.exe",
-    "VBoxTray.exe", "procmon.exe", "ollydbg.exe", "vmware-tray.exe",
-    "idag.exe", "ImmunityDebugger.exe")
+# Your processes come here:
+$fakeProcesses = @("wireshark.exe", "vmacthlp.exe", "VBoxService.exe", "VBoxTray.exe", "procmon.exe", "ollydbg.exe", "vmware-tray.exe", "idag.exe", "ImmunityDebugger.exe")
 
+# If you type in "start" it will run this:
 if ($action -ceq "start") {
     # We will store our renamed binaries into a temp folder
     $tmpdir = [System.Guid]::NewGuid().ToString()
@@ -36,12 +36,14 @@ if ($action -ceq "start") {
 
     Set-Location $oldpwd
 }
+# If you type in "stop" it will run this:
 elseif ($action -ceq "stop") {
     foreach ($proc in $fakeProcesses) {
         Stop-Process -processname "$proc".Split(".")[0]
         write-host "[+] Killed $proc"
     }
 }
+# Else print this:
 else {
     write-host "Bad usage: need '-action start' or '-action stop' parameter!"
 }
