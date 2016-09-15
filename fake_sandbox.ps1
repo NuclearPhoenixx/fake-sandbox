@@ -35,15 +35,26 @@ if ($action -ceq "start") {
     }
 
     Set-Location $oldpwd
+	write-host ""
+	write-host "Press any key to close..."
+	cmd /c pause | out-null
 }
 # If you type in "stop" it will run this:
 elseif ($action -ceq "stop") {
-    foreach ($proc in $fakeProcesses) {
+    write-host ""
+	foreach ($proc in $fakeProcesses) {
         Stop-Process -processname "$proc".Split(".")[0]
         write-host "[+] Killed $proc"
     }
+	write-host ""
+	write-host "Press any key to close..."
+	cmd /c pause | out-null
 }
 # Else print this:
 else {
-    write-host "Bad usage: need '-action start' or '-action stop' parameter!"
+	write-host ""
+    write-host "Bad usage: You need to use either 'start' or 'stop' for this to work!" -foregroundcolor Red
+	write-host "Press any key to close..."
+	cmd /c pause | out-null
+	
 }
