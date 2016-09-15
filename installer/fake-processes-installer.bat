@@ -23,7 +23,7 @@ SET @proc="wireshark.exe","vmacthlp.exe","VBoxService.exe","VBoxTray.exe","procm
 :: Title and Version code
 TITLE Fake-Sandbox Installer
 COLOR 0F
-SET @v=1.2
+SET @v=1.2.1
 SET path=%~dp0
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Just some nice user interface things
@@ -45,7 +45,7 @@ echo :: available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo TITLE Fake-Sandbox is starting...>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo start "Starting fake-processes..." /MIN Powershell.exe -executionpolicy remotesigned -File "%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo start powershell -executionpolicy remotesigned -WindowStyle Hidden -File "%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 
 :: -------------------------------------------------------------------------------------------------------------------------------
