@@ -1,5 +1,12 @@
 # Changelog:
 
+v.1.3. (17 September 2016)
+* Added WinDebugger (WinDbg.exe) and IDA Debugger Pro (idaq.exe)
+* Added confirmation question (yes/no) to install or not (-> Installer and Uninstaller)
+
+v.1.2.1 (16 September 2016)
+* Powershell is now starting in a hidden windows instead of minimized.
+
 v.1.2. (9 September 2016)
 * Added color settings in the installer and the uninstaller.
 * Make powershell launch the script minimized and with the title "Starting fake-processes...".
