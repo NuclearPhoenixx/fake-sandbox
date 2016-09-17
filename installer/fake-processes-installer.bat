@@ -17,13 +17,13 @@
 ::   *--------------------------------------------------------------------------------------*
 
 ::  Please enter your desired fake processes here:
-SET @proc="wireshark.exe","vmacthlp.exe","VBoxService.exe","VBoxTray.exe","procmon.exe","ollydbg.exe","vmware-tray.exe","idag.exe","ImmunityDebugger.exe"
+SET @proc="WinDbg.exe","idaq.exe","wireshark.exe","vmacthlp.exe","VBoxService.exe","VBoxTray.exe","procmon.exe","ollydbg.exe","vmware-tray.exe","idag.exe","ImmunityDebugger.exe"
 
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Title and Version code
 TITLE Fake-Sandbox Installer
 COLOR 0F
-SET @v=1.2.1
+SET @v=1.3
 SET path=%~dp0
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Just some nice user interface things
@@ -31,12 +31,16 @@ echo Fake-Sandbox installation script. Version %@v%, 2016.
 echo Visit https://www.github.com/aperture-diversion/fake-sandbox/ for updates and fixes.
 echo.
 echo.
-echo You are about to install the fake-sandbox script to your computer (autostart). Click any key to install it...
-pause > NUL
-echo.
+echo You are about to install the fake-sandbox script to your computer (autostart).
+SET /P ANSWER=Would you like to continue? (y/n): 
+
+if /i %ANSWER%==y (goto install)
+if /i %ANSWER%==n (goto no)
+goto unrecog
 
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Creation of the file that will execute the Powershell script upon startup
+:install
 del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 
 echo @echo off>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
@@ -81,7 +85,6 @@ echo     Set-Location $oldpwd>>"%appdata%\Fake-Sandbox Processes\fake-sandbox.ps
 :: Look for any error:
 if errorlevel 1 goto error
 COLOR 0A
-echo.
 cls
 echo.
 echo Done, all files have been created. This should work after you relogin. Please press any key to exit...
@@ -92,7 +95,6 @@ exit
 :: If there was an error, the following commands will be used:
 :error
 COLOR 0C
-echo.
 cls
 echo.
 echo An error occured!
@@ -104,5 +106,28 @@ echo %path:~0,-1%
 echo.
 echo Press any key to exit...
 echo.  
+pause > NUL
+exit
+
+:: -------------------------------------------------------------------------------------------------------------------------------
+:: If you chose not to install this will execute:
+:no
+cls
+echo.
+echo You chose not to install fake-sandbox processes. Press any key to exit...
+echo.
+pause > NUL
+exit
+
+:: If you did not choose "n" nor "y" this will appear:
+:unrecog
+COLOR 0C
+cls
+echo.
+echo An error occured!
+echo Unrecognized command. You have to choose "y" for yes and "n" for no.
+echo.
+echo Press any key to exit...
+echo.
 pause > NUL
 exit
