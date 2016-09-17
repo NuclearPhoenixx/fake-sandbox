@@ -49,7 +49,7 @@ echo :: available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo TITLE Fake-Sandbox is starting...>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo start powershell -executionpolicy remotesigned -WindowStyle Hidden -File "%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 
 :: -------------------------------------------------------------------------------------------------------------------------------
