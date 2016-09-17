@@ -12,7 +12,7 @@
 param([Parameter(Mandatory=$true)][string]$action)
 
 # Your processes come here:
-$fakeProcesses = @("wireshark.exe", "vmacthlp.exe", "VBoxService.exe", "VBoxTray.exe", "procmon.exe", "ollydbg.exe", "vmware-tray.exe", "idag.exe", "ImmunityDebugger.exe")
+$fakeProcesses = @("WinDbg.exe","idaq.exe","wireshark.exe", "vmacthlp.exe", "VBoxService.exe", "VBoxTray.exe", "procmon.exe", "ollydbg.exe", "vmware-tray.exe", "idag.exe", "ImmunityDebugger.exe")
 
 # If you type in "start" it will run this:
 if ($action -ceq "start") {
