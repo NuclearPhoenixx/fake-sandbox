@@ -68,7 +68,7 @@ Then run it and follow the instructions (well, there basically arent any. You ju
 
 ----------------------------------------
 
-Successfully tested on following (clean-install) Windows versions:
+Successfully tested on following Windows versions:
 
 * Win 10 Professional
 * Win 8.1 Home
