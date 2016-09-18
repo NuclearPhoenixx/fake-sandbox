@@ -9,8 +9,9 @@ del version.txt
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/version', '%appdata%\Fake-Sandbox Processes\version.txt')"
 timeout /t 1>NUL
 
-if version.txt==%v% (goto ok)
-goto new
+find /c "%v%" version.txt
+if %errorlevel% equ 1 (goto new)
+goto ok
 
 :new
 del version.txt
