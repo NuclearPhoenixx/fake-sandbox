@@ -1,4 +1,4 @@
-# fake-sandbox processes
+# fake-sandbox processes (fsp)
 
 This small script will simulate fake processes of analysis sandbox/VM software that some malware will try to avoid.
 You can download the original script (made by @x0rz ) in the ```orig```  directory.
@@ -25,6 +25,7 @@ You can also download my slightly optimized script in the main directory. The fi
 * No requirements either
 * Minimal size
 * Offline package - no internet connection required
+* Automatic updater included!
 
 ----------------------------------------
 
@@ -33,7 +34,7 @@ You can also download my slightly optimized script in the main directory. The fi
 If you are using the command line, this is your command:
 
 ```
-Powershell.exe -executionpolicy remotesigned -File "C:\Full\Path\To\File\fake-sandbox.ps1" -action {start,stop}
+Powershell -File "C:\Full\Path\To\File\fake-sandbox.ps1" -action {start,stop}
 ```
 Start will obviously start all the commands, stop will do the opposite.
 
