@@ -53,7 +53,7 @@ echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Fi
 echo del "%appdata%\Fake-SandboxProcesses\updater.bat">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater.bat')">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo ping -n 1 127.0.0.1^>NUL>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo ping -n 2 127.0.0.1^>NUL>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo echo Starting updater.bat....>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo start /MIN %appdata%\Fake-SandboxProcesses\updater.bat>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
