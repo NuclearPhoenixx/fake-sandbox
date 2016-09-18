@@ -7,13 +7,9 @@ start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "C
 del "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\updater.bat"
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', 'C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\updater.bat')"
 
-ping -n 0.5 localhost>NUL
-if exist "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\updater.bat" (goto start)
-goto exit
-
-:start
-start /MIN "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\updater.bat"
+ping -n 1 127.0.0.1>NUL
 echo Starting updater.bat....
+start /MIN "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\updater.bat"
 exit
 
 :exit
