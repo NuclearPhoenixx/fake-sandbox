@@ -1,7 +1,7 @@
 @echo off
 ::-------------------------------------------------------------------
 :: THIS IS THE CURRENT VERSION
-SET v=1.3
+SET /p v=<"%appdata%\Fake-Sandbox Processes\current_version.txt"
 
 ::-------------------------------------------------------------------
 TITLE Fake-sandbox processes updater

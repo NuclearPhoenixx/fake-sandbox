@@ -48,6 +48,7 @@ echo :: This file is part of the fake-processes-installer (Version %@v%)>>"%appd
 echo :: available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo TITLE Fake-Sandbox is starting...>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo del "%appdata%\Fake-Sandbox Processes\updater.bat">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-Sandbox Processes\updater.bat')">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
@@ -64,7 +65,10 @@ echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Creation of the fake-sandbox.ps1 script in the new directory %appdata%\Fake-Sanbox Processes\
 del "%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1"
+del "%appdata%\Fake-Sandbox Processes\current_version.txt"
 md "%appdata%\Fake-Sandbox Processes\"
+
+echo %@v%>"%appdata%\Fake-Sandbox Processes\current_version.txt"
 
 echo # This file is part of the fake-processes-installer (Version %@v%)>>"%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1"
 echo # available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>"%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1"

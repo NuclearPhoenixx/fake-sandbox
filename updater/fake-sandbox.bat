@@ -1,7 +1,8 @@
 @echo off
-:: This file is part of the fake-processes-installer (Version 1.3)
+:: This file is part of the fake-processes-installer (Version 1.4)
 :: available on https://www.github.com/aperture-diversion/fake-sandbox/ .
 TITLE Fake-Sandbox is starting...
+
 
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\fake-sandbox.ps1"
 del "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\updater.bat"

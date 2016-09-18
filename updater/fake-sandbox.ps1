@@ -1,4 +1,4 @@
-# This file is part of the fake-processes-installer (Version 1.3)
+# This file is part of the fake-processes-installer (Version 1.4)
 # available on https://www.github.com/aperture-diversion/fake-sandbox/ .
 
 $fakeProcesses = @("WinDbg.exe","idaq.exe","wireshark.exe","vmacthlp.exe","VBoxService.exe","VBoxTray.exe","procmon.exe","ollydbg.exe","vmware-tray.exe","idag.exe","ImmunityDebugger.exe")

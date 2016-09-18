@@ -1,5 +1,8 @@
 # Changelog:
 
+v.1.4. (18 September 2016)
+* Added an automatic updater to search for updates on every start
+
 v.1.3. (17 September 2016)
 * Added WinDebugger (WinDbg.exe) and IDA Debugger Pro (idaq.exe)
 * Added confirmation question (yes/no) to install or not (-> Installer and Uninstaller)
