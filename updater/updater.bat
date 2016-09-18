@@ -59,7 +59,7 @@ exit
 
 :: If there is no new version, delete the version.txt and exit
 :ok
-del "%appdata%\Fake-SandboxProcesses\current_version.txt"
+del "%appdata%\Fake-SandboxProcesses\version.txt"
 exit
 
 :: If you didn't type in "y" for yes or "n" for no then this will start
