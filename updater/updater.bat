@@ -1,6 +1,7 @@
 @echo off
 TITLE Fake-sandbox processes updater
 
+del version.txt
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/version', '%appdata%\Fake-Sandbox Processes\version.txt')"
 ping -n 2 localhost>NUL
 
@@ -20,6 +21,8 @@ goto unrecog
 cls
 echo.
 echo Installing new files...
+del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+del "%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1"
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/fake-sandbox.bat', '%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat')"
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/fake-sandbox.ps1', '%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1')"
 ping -n 3 localhost>NUL
