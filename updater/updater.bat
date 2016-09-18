@@ -7,7 +7,7 @@ TITLE Fake-sandbox processes updater
 
 del version.txt
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/version', '%appdata%\Fake-Sandbox Processes\version.txt')"
-timeout /T 1>NUL
+timeout 1>NUL
 
 find /c "%v%" version.txt
 if %errorlevel% equ 1 (goto new)
@@ -30,7 +30,7 @@ del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 del "%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1"
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/fake-sandbox.bat', '%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat')"
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/fake-sandbox.ps1', '%appdata%\Fake-Sandbox Processes\fake-sandbox.ps1')"
-timeout /T 3>NUL
+timeout 3>NUL
 cls
 COLOR 0A
 echo.
