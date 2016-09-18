@@ -20,7 +20,7 @@ goto unrecog
 :: Delete the autostart file and the whole "Fake-Sandbox Processes" directory.
 :uninstall
 del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-rmdir /s /q "%appdata%\Fake-Sandbox Processes\"
+rmdir /s /q "%appdata%\Fake-SandboxProcesses\"
 cls
 
 :: -------------------------------------------------------------------------------------------------------------------------------
