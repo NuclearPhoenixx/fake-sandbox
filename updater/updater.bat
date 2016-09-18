@@ -9,7 +9,8 @@ goto new
 
 :new
 del version.txt
-* msg A new version of FSP (fake-sandbox processes) is available!
+SET type version.txt=%version%
+* msg A new version (%version%) of FSP (fake-sandbox processes) is available!
 SET /P ANSWER=Would you like to install the update? (y/n): 
 if /i %ANSWER%==y (goto install)
 if /i %ANSWER%==n (goto no)
