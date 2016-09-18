@@ -12,8 +12,8 @@ start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command
 ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
-findstr /m "%v%" "%appdata%\Fake-SandboxProcesses\version.txt"
-if %errorlevel%==0 (goto ok)
+SET /p nv=<"%appdata%\Fake-SandboxProcesses\version.txt"
+if %nv%==%v% (goto ok)
 goto new
 
 :: Ask to install the new version
