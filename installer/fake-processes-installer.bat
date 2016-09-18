@@ -58,9 +58,6 @@ echo echo Starting updater.bat....>>"%appdata%\Microsoft\Windows\Start Menu\Prog
 echo start /MIN "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\updater.bat">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo :exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo echo Did not find updater.bat; exiting....>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Creation of the fake-sandbox.ps1 script in the new directory %appdata%\Fake-Sanbox Processes\

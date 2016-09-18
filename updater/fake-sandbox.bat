@@ -12,7 +12,3 @@ ping -n 1 127.0.0.1>NUL
 echo Starting updater.bat....
 start /MIN "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\updater.bat"
 exit
-
-:exit
-echo Did not find updater.bat; exiting....
-exit
