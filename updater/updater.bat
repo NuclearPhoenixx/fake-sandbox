@@ -21,6 +21,7 @@ goto new
 SET /p version=<"%appdata%\Fake-SandboxProcesses\version.txt"
 del "%appdata%\Fake-SandboxProcesses\version.txt"
 msg * A new version (%version%) of Fake Sandbox Processes is available!
+clr
 echo.
 SET /P ANSWER=Would you like to install the update? (y/n): 
 if /i %ANSWER%==y (goto install)
