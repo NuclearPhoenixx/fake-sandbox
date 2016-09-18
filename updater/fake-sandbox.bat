@@ -8,7 +8,7 @@ start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "%
 del "%appdata%\Fake-SandboxProcesses\updater.bat"
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater.bat')"
 
-ping -n 1 127.0.0.1>NUL
+ping -n 2 127.0.0.1>NUL
 echo Starting updater.bat....
 start /MIN %appdata%\Fake-SandboxProcesses\updater.bat
 exit
