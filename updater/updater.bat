@@ -14,7 +14,7 @@ ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nuv=<"%appdata%\Fake-SandboxProcesses\uversion.txt"
-if not %nuv%==%uversion% goto new_updater
+if not %nuv%==%uversion% (goto new_updater)
 del %appdata%\Fake-SandboxProcesses\uversion.txt
 
 ::-------------------------------------------------------------------
@@ -24,7 +24,7 @@ ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nv=<"%appdata%\Fake-SandboxProcesses\version.txt"
-if %nv%==%v% goto ok
+if %nv%==%v% (goto ok)
 goto new
 
 :: Ask to install the new version
@@ -34,7 +34,9 @@ del "%appdata%\Fake-SandboxProcesses\version.txt"
 msg * A new version (%version%) of Fake Sandbox Processes is available!
 cls
 echo.
-SET /P ANSWER=Would you like to install the update? (y/n): 
+echo Version %version% is now available. Changelog: https://github.com/Aperture-Diversion/fake-sandbox/blob/master/Changelog.md
+echo.
+SET /P ANSWER=Would you like to download and install the update? (y/n): 
 if /i %ANSWER%==y goto install
 if /i %ANSWER%==n goto no
 goto unrecog
