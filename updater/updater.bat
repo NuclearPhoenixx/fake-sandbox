@@ -2,9 +2,27 @@
 ::-------------------------------------------------------------------
 :: THIS IS THE CURRENT VERSION
 SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
+SET uversion=1
 
 ::-------------------------------------------------------------------
 TITLE Fake-sandbox processes updater
+
+::-------------------------------------------------------------------
+:: Download new uversion.txt
+start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/uversion', '%appdata%\Fake-SandboxProcesses\uversion.txt')"
+ping -n 2 127.0.0.1>NUL
+
+:: Look if the version code has changed
+SET /p nuv=<"%appdata%\Fake-SandboxProcesses\uversion.txt"
+if not %nuv%==%uversion% (
+	cls
+	echo Downloading new updater...
+	start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')"
+	ping -n 2 127.0.0.1>NUL
+	start /min %appdata%\Fake-SandboxProcesses\update-installer.bat
+	exit
+)
+del %appdata%\Fake-SandboxProcesses\uversion.txt
 
 ::-------------------------------------------------------------------
 :: Download new version.txt
@@ -30,20 +48,38 @@ goto unrecog
 
 :: If yes then download and install the new version
 :install
+del %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat
 cls
 echo.
 echo Installing new files...
-del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-del "%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/fake-sandbox.bat', '%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat')"
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/fake-sandbox.ps1', '%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1')"
+start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/installer/fake-sandbox-installer.bat', '%appdata%\Fake-SandboxProcesses\fsp-installer_update.bat')"
+echo Downloading...
 ping -n 3 127.0.0.1>NUL
-del "%appdata%\Fake-SandboxProcesses\current_version.txt"
-echo %version%>>"%appdata%\Fake-SandboxProcesses\current_version.txt"
+
+if exist %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat goto continue
+goto dlerror
+
+:: If everything went fine, this will execute
+:continue
 cls
-COLOR 0A
 echo.
-echo Done. Please relogin for the changes to take effect. Click to close this window...
+echo Download successful!
+echo Starting installer now...
+echo.
+timeout 2
+CALL %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat
+del %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat
+exit
+
+:: If there was an error downloading the update, this will show up.
+:dlerror
+cls
+COLOR 0C
+echo.
+echo There was an error downloading the update.
+echo Please try again later.
+echo.
+echo Press any key to exit...
 echo.
 pause>NUL
 exit
