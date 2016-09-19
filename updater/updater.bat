@@ -14,17 +14,7 @@ ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nuv=<"%appdata%\Fake-SandboxProcesses\uversion.txt"
-if not %nuv%==%uversion% (
-	cls
-	echo Downloading new updater...
-	start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')"
-	ping -n 2 127.0.0.1>NUL
-		if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (
-			start /min %appdata%\Fake-SandboxProcesses\update-installer.bat
-			exit
-		)
-	exit
-)
+if not %nuv%==%uversion% goto new_updater
 del %appdata%\Fake-SandboxProcesses\uversion.txt
 
 ::-------------------------------------------------------------------
@@ -112,4 +102,15 @@ echo.
 echo Press any key to exit...
 echo.
 pause > NUL
+exit
+
+:new_updater
+cls
+echo Downloading new updater...
+start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')"
+ping -n 2 127.0.0.1>NUL
+if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (
+	start /min %appdata%\Fake-SandboxProcesses\update-installer.bat
+	exit
+)
 exit
