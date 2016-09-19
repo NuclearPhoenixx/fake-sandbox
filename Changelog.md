@@ -1,5 +1,8 @@
 # Changelog:
 
+v.1.5. (19 September 2016)
+* Some updater improvements and fixes
+
 v.1.4. (18 September 2016)
 * Added an automatic updater to search for updates on every start.
 * Changed installation path from "%appdata%\Fake-Sandbox Processes\" to "%appdata%\Fake-SandboxProcesses\".

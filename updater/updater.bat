@@ -14,7 +14,7 @@ ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nuv=<"%appdata%\Fake-SandboxProcesses\uversion.txt"
-if not %nuv%==%uversion% (goto new_updater)
+if not %nuv%==%uversion% goto new_updater
 del %appdata%\Fake-SandboxProcesses\uversion.txt
 
 ::-------------------------------------------------------------------
@@ -24,7 +24,7 @@ ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nv=<"%appdata%\Fake-SandboxProcesses\version.txt"
-if %nv%==%v% (goto ok)
+if %nv%==%v% goto ok
 goto new
 
 :: Ask to install the new version
@@ -63,6 +63,7 @@ echo Starting installer now...
 echo.
 timeout 2
 CALL %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat
+ping -n 1 127.0.0.1>NUL
 del %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat
 exit
 
@@ -113,6 +114,14 @@ start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command
 ping -n 2 127.0.0.1>NUL
 if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (
 	start /min %appdata%\Fake-SandboxProcesses\update-installer.bat
+	exit
+)
+exit@echo off
+echo Downloading new updater...
+start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', 'C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\updater_new.bat')"
+ping -n 2 127.0.0.1>NUL
+if exist C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\updater_new.bat (
+	start /min C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\update-installer.bat
 	exit
 )
 exit
