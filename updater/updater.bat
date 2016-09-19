@@ -2,7 +2,7 @@
 ::-------------------------------------------------------------------
 :: THIS IS THE CURRENT VERSION
 SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
-SET uversion=1
+SET uversion=2
 
 ::-------------------------------------------------------------------
 TITLE Fake-sandbox processes updater
