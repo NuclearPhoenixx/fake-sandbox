@@ -13,7 +13,7 @@ ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nv=<"%appdata%\Fake-SandboxProcesses\version.txt"
-if %nv%==%v% (goto ok)
+if %nv%==%v% goto ok
 goto new
 
 :: Ask to install the new version
@@ -24,8 +24,8 @@ msg * A new version (%version%) of Fake Sandbox Processes is available!
 cls
 echo.
 SET /P ANSWER=Would you like to install the update? (y/n): 
-if /i %ANSWER%==y (goto install)
-if /i %ANSWER%==n (goto no)
+if /i %ANSWER%==y goto install
+if /i %ANSWER%==n goto no
 goto unrecog
 
 :: If yes then download and install the new version
