@@ -99,6 +99,16 @@ echo start /MIN %appdata%\Fake-SandboxProcesses\updater.bat>>"%appdata%\Fake-San
 echo exit>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 
 :: -------------------------------------------------------------------------------------------------------------------------------
+:: Creation of the updater.bat script in the same directory
+echo echo Downloading new updater...>>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')">>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo ping -n 2 127.0.0.1^>NUL>>"%appdata%\Fake-SandboxProcesses\updater.bat">>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo	if exist %appdata%\Fake-SandboxProcesses\updater_new.bat(>>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo		start /min %appdata%\Fake-SandboxProcesses\update-installer.bat>>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo		exit>>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo	)>>"%appdata%\Fake-SandboxProcesses\updater.bat"
+
+:: -------------------------------------------------------------------------------------------------------------------------------
 :: End of file installation
 :: <---- delete this line and add "pause" instead to enable debugging.
 :: -------------------------------------------------------------------------------------------------------------------------------

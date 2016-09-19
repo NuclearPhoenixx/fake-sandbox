@@ -19,7 +19,10 @@ if not %nuv%==%uversion% (
 	echo Downloading new updater...
 	start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')"
 	ping -n 2 127.0.0.1>NUL
-	start /min %appdata%\Fake-SandboxProcesses\update-installer.bat
+		if exist %appdata%\Fake-SandboxProcesses\updater_new.bat(
+			start /min %appdata%\Fake-SandboxProcesses\update-installer.bat
+			exit
+		)
 	exit
 )
 del %appdata%\Fake-SandboxProcesses\uversion.txt
