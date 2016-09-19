@@ -51,7 +51,7 @@ echo TITLE Fake-Sandbox is starting...>>"%appdata%\Microsoft\Windows\Start Menu\
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo echo Starting main script....>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "C:\Users\Matthias\AppData\Roaming\Fake-Sandbox Processes\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo echo Starting updater....>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo start /MIN %appdata%\Fake-SandboxProcesses\updater.bat>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
@@ -109,6 +109,7 @@ echo	if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (>>"%appdata%\Fake
 echo		start /min %appdata%\Fake-SandboxProcesses\update-installer.bat>>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo		exit>>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo	)>>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo exit>>"%appdata%\Fake-SandboxProcesses\updater.bat"
 
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: End of file installation
