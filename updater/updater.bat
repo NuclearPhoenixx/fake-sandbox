@@ -2,7 +2,7 @@
 ::-------------------------------------------------------------------
 :: THIS IS THE CURRENT VERSION
 SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
-SET uversion=2
+SET uversion=3
 
 ::-------------------------------------------------------------------
 TITLE Fake-sandbox processes updater
@@ -14,7 +14,7 @@ ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nuv=<"%appdata%\Fake-SandboxProcesses\uversion.txt"
-if not %nuv%==%uversion% goto new_updater
+if not "%nuv%"=="%uversion%" goto new_updater
 del %appdata%\Fake-SandboxProcesses\uversion.txt
 
 ::-------------------------------------------------------------------
@@ -24,7 +24,7 @@ ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nv=<"%appdata%\Fake-SandboxProcesses\version.txt"
-if %nv%==%v% goto ok
+if "%nv%"=="%v%" goto ok
 goto new
 
 :: Ask to install the new version
