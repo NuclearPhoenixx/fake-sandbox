@@ -2,7 +2,7 @@
 ::-------------------------------------------------------------------
 :: THIS IS THE CURRENT VERSION
 SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
-SET uversion=2
+SET uversion=3
 
 ::-------------------------------------------------------------------
 TITLE Fake-sandbox processes updater
@@ -13,23 +13,25 @@ start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command
 ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
-SET /p nuv=<"%appdata%\Fake-SandboxProcesses\uversion.txt"
-if not %nuv%==%uversion% goto new_updater
-del %appdata%\Fake-SandboxProcesses\uversion.txt
-
+if exist %appdata%\Fake-SandboxProcesses\uversion.txt (
+	SET /p "nuv"=<"%appdata%\Fake-SandboxProcesses\uversion.txt"
+	if not "%nuv%"=="%uversion%" goto new_updater
+	del "%appdata%\Fake-SandboxProcesses\uversion.txt"
+) else exit
 ::-------------------------------------------------------------------
 :: Download new version.txt
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/version', '%appdata%\Fake-SandboxProcesses\version.txt')"
 ping -n 2 127.0.0.1>NUL
 
 :: Look if the version code has changed
-SET /p nv=<"%appdata%\Fake-SandboxProcesses\version.txt"
-if %nv%==%v% goto ok
-goto new
-
+if exist %appdata%\Fake-SandboxProcesses\version.txt (
+	SET /p "nv"=<"%appdata%\Fake-SandboxProcesses\version.txt"
+	if "%nv%"=="%v%" goto ok
+	goto new
+) else exit
 :: Ask to install the new version
 :new
-SET /p version=<"%appdata%\Fake-SandboxProcesses\version.txt"
+SET /p "version"=<"%appdata%\Fake-SandboxProcesses\version.txt"
 del "%appdata%\Fake-SandboxProcesses\version.txt"
 msg * A new version (%version%) of Fake Sandbox Processes is available!
 cls
@@ -114,14 +116,6 @@ start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command
 ping -n 2 127.0.0.1>NUL
 if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (
 	start /min %appdata%\Fake-SandboxProcesses\update-installer.bat
-	exit
-)
-exit@echo off
-echo Downloading new updater...
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', 'C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\updater_new.bat')"
-ping -n 2 127.0.0.1>NUL
-if exist C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\updater_new.bat (
-	start /min C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\update-installer.bat
 	exit
 )
 exit
