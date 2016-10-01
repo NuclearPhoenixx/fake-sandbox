@@ -2,15 +2,16 @@
 ::-------------------------------------------------------------------
 :: THIS IS THE CURRENT VERSION
 SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
-SET uversion=3
+SET uversion=4
 
 ::-------------------------------------------------------------------
-TITLE Fake-sandbox processes updater
+TITLE FSP Updater v%uversion%
+ping -n 5 127.0.0.1>NUL
 
 ::-------------------------------------------------------------------
 :: Download new uversion.txt
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/uversion', '%appdata%\Fake-SandboxProcesses\uversion.txt')"
-ping -n 2 127.0.0.1>NUL
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/uversion', '%appdata%\Fake-SandboxProcesses\uversion.txt')"
+ping -n 1 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nuv=<"%appdata%\Fake-SandboxProcesses\uversion.txt"
@@ -19,16 +20,14 @@ del %appdata%\Fake-SandboxProcesses\uversion.txt
 
 ::-------------------------------------------------------------------
 :: Download new version.txt
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/version', '%appdata%\Fake-SandboxProcesses\version.txt')"
-ping -n 2 127.0.0.1>NUL
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/version', '%appdata%\Fake-SandboxProcesses\version.txt')"
+ping -n 1 127.0.0.1>NUL
 
 :: Look if the version code has changed
 SET /p nv=<"%appdata%\Fake-SandboxProcesses\version.txt"
 if "%nv%"=="%v%" goto ok
-goto new
 
 :: Ask to install the new version
-:new
 SET /p version=<"%appdata%\Fake-SandboxProcesses\version.txt"
 del "%appdata%\Fake-SandboxProcesses\version.txt"
 msg * A new version (%version%) of Fake Sandbox Processes is available!
