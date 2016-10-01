@@ -1,4 +1,4 @@
-# fake-sandbox processes (fsp)
+# fake-sandbox processes (fsp) ![latest version](https://img.shields.io/github/release/aperture-diversion/fake-sandbox.svg)![license](https://img.shields.io/github/license/aperture-diversion/fake-sandbox.svg) ![releases](https://img.shields.io/github/downloads/aperture-diversion/fake-sandbox/total.svg)
 
 This small script will simulate fake processes of analysis sandbox/VM software that some malware will try to avoid.
 You can download the original script (made by @x0rz ) in the ```orig```  directory.
@@ -53,7 +53,7 @@ In order to autostart the script, I made an easy-to-use installer.
 2. Double-Click it.
 3. Now you will see this cmd window.
 
-![install](http://www.aperturegds.tk/host/install.png)
+![install](http://www.apertured.tk/host/install.png)
 
   Don't mind the last line in German, this will appear in your language.
 Now click any key to start the installation.
@@ -65,7 +65,7 @@ Now click any key to start the installation.
 If you no longer want to run this program, just download the ```uninstall.bat``` file from the ```installer``` directory.
 Then run it and follow the instructions (well, there basically arent any. You just have to press a key twice.)
 
-![uninstall](http://www.aperturegds.tk/host/uninstall.png)
+![uninstall](http://www.apertured.tk/host/uninstall.png)
 
 ----------------------------------------
 
