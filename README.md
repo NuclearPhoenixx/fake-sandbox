@@ -1,4 +1,4 @@
-# fake-sandbox processes (fsp) ![latest version](https://img.shields.io/github/release/aperture-diversion/fake-sandbox.svg)![license](https://img.shields.io/github/license/aperture-diversion/fake-sandbox.svg) ![releases](https://img.shields.io/github/downloads/aperture-diversion/fake-sandbox/total.svg)
+# fake-sandbox processes (fsp) ![latest version](https://img.shields.io/github/release/aperture-diversion/fake-sandbox.svg) ![license](https://img.shields.io/github/license/aperture-diversion/fake-sandbox.svg) ![releases](https://img.shields.io/github/downloads/aperture-diversion/fake-sandbox/total.svg)
 
 This small script will simulate fake processes of analysis sandbox/VM software that some malware will try to avoid.
 You can download the original script (made by @x0rz ) in the ```orig```  directory.
