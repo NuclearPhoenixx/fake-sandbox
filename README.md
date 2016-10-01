@@ -49,9 +49,9 @@ If you are using the explorer, just follow these steps:
 If you execute the powershell script with the above commands, you have to rerun it every relogin or startup.
 In order to autostart the script, I made an easy-to-use installer.
 
- \1\. Download the ```installer.bat``` from the ```installer``` directory.
- \2\. Double-Click it.
- \3\. Now you will see this cmd window.
+ \1.\ Download the ```installer.bat``` from the ```installer``` directory.
+ 2. Double-Click it.
+ 3. Now you will see this cmd window.
 
 ![install](http://www.apertured.tk/host/install.png)
 
