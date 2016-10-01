@@ -25,7 +25,7 @@ You can also download my slightly optimized script in the main directory. The fi
 * No requirements either
 * Minimal size
 * Offline package - no internet connection required
-* Automatic updater included!
+* Automatic updater included, if you want!
 
 ----------------------------------------
 
@@ -55,7 +55,12 @@ In order to autostart the script, I made an easy-to-use installer.
 
 ![install](http://www.apertured.tk/host/install.png)
 
-Now click any key to start the installation.
+4. Now press "y" to start the installation or "n" to abort it.
+5. Now this image will pop up:
+
+![install2](http://www.apertured.tk/host/install2.png)
+
+6. Press "y" to install the auto-updater or "n" to not install it (it will work anyways, I just recommended you to install the updater).
 
 ----> You can now close the windows or press any key to close it. The installation is complete.
 
