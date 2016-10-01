@@ -55,7 +55,6 @@ In order to autostart the script, I made an easy-to-use installer.
 
 ![install](http://www.apertured.tk/host/install.png)
 
-  Don't mind the last line in German, this will appear in your language.
 Now click any key to start the installation.
 
 ----> You can now close the windows or press any key to close it. The installation is complete.
