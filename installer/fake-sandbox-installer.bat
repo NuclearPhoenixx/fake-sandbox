@@ -1,5 +1,5 @@
 @echo off
-
+:start
 ::   *-----------------------------------------------------------------------------*
 ::   | This file is writing my optimized version of the fake-sandbox.ps1 script to |
 ::   | your autostart directory. After you log in to your user account this script |
@@ -83,7 +83,10 @@ echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat
 
 cls
 echo.
-SET /P asw=Would you like to enable the auto-updater to search and install updates regularly? (y/n): 
+COLOR 0E
+echo Would you like to enable the auto-updater to search and install updates regularly? (recommended)
+SET /p asw=Choose (y/n): 
+COLOR 0F
 if /i %asw%==y (goto updater)
 if /i %asw%==n (
 	echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
@@ -176,7 +179,7 @@ echo.
 echo An error occured!
 echo Unrecognized command. You have to choose "y" for yes and "n" for no.
 echo.
-echo Press any key to exit...
+echo Press any key to restart...
 echo.
 pause > NUL
-exit
+goto start

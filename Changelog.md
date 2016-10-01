@@ -1,19 +1,23 @@
 # Changelog:
 
+v.1.6 (1 October 2016)
+* You can now choose to install FSP with or without the auto updater!
+* Restart instead of exit after typing in an unrecognized command.
+
 v.1.5.1 (1 October 2016)
-* Stability improvements
-* Bugfixes
+* Stability improvements.
+* Bugfixes.
 
 v.1.5. (19 September 2016)
-* Some updater improvements and fixes
+* Some updater improvements and fixes.
 
 v.1.4. (18 September 2016)
 * Added an automatic updater to search for updates on every start.
 * Changed installation path from "%appdata%\Fake-Sandbox Processes\" to "%appdata%\Fake-SandboxProcesses\".
 
 v.1.3. (17 September 2016)
-* Added WinDebugger (WinDbg.exe) and IDA Debugger Pro (idaq.exe)
-* Added confirmation question (yes/no) to install or not (-> Installer and Uninstaller)
+* Added WinDebugger (WinDbg.exe) and IDA Debugger Pro (idaq.exe).
+* Added confirmation question (yes/no) to install or not (-> Installer and Uninstaller).
 
 v.1.2.1 (16 September 2016)
 * Powershell is now starting in a hidden windows instead of minimized.
