@@ -23,7 +23,7 @@ SET @proc="WinDbg.exe","idaq.exe","wireshark.exe","vmacthlp.exe","VBoxService.ex
 :: Title and Version code
 TITLE Fake-Sandbox Installer
 COLOR 0F
-SET @v=1.5
+SET @v=1.5.1
 SET path=%~dp0
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Just some nice user interface things
@@ -88,14 +88,16 @@ echo     Set-Location $oldpwd>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1
 
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Creation of the updater-updater (lol) script in the same directory
-echo :: This file is part of the fake-processes-installer (Version %@v%)>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
+echo :: This file is part of the fake-processes-installer (Version %@v%)>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo :: available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo @echo off>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo.>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
-echo ping -n 1 127.0.0.1>NUL>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
+echo ping -n 1 127.0.0.1^>NUL>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo.>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo del %appdata%\Fake-SandboxProcesses\uversion.txt>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo move /y %appdata%\Fake-SandboxProcesses\updater_new.bat %appdata%\Fake-SandboxProcesses\updater.bat>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
+echo ping -n 1 127.0.0.1^>NUL>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
+echo del %appdata%\Fake-SandboxProcesses\updater_new.bat>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo start /MIN %appdata%\Fake-SandboxProcesses\updater.bat>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo exit>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 
