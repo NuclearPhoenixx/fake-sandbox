@@ -52,7 +52,7 @@ In order to autostart the script, I made an easy-to-use installer.
 <ol>
   <li>Download the ```fake-sandbox-installer.bat``` from the ```installer``` directory.</li>
   <li>Double-Click it.</li>
-  <li>Now you will see this cmd window.</li>
+  <li>Now you will see this cmd window:</li>
 
 <br>
 <img src="http://www.apertured.tk/host/install.png">
@@ -68,7 +68,7 @@ In order to autostart the script, I made an easy-to-use installer.
   <li>Press "y" to install the auto-updater or "n" to not install it (it will work anyways, I just recommended you to install the updater).</li>
 </ol>
 
-----> You can now close the windows or press any key to close it. The installation is complete.
+---> You can now close the windows or press any key to close it. The installation is complete.
 
 #### Uninstall
 
