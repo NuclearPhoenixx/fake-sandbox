@@ -54,12 +54,16 @@ In order to autostart the script, I made an easy-to-use installer.
   <li>Double-Click it.</li>
   <li>Now you will see this cmd window.</li>
 
+<br>
 <img src="http://www.apertured.tk/host/install.png">
+<br>
 
   <li>Now press "y" to start the installation or "n" to abort it.</li>
   <li>Now this image will pop up:</li>
 
+<br>
 <img src="http://www.apertured.tk/host/install2.png">
+<br>
 
   <li>Press "y" to install the auto-updater or "n" to not install it (it will work anyways, I just recommended you to install the updater).</li>
 </ol>
