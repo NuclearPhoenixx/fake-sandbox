@@ -40,27 +40,27 @@ Start will obviously start all the commands, stop will do the opposite.
 
 If you are using the explorer, just follow these steps:
 
-1. Right-click on the file
-2. Choose "Run with Powershell"
-3. Choose parameter "start" to start and "stop" to kill all processes
+* Right-click on the file
+* Choose "Run with Powershell"
+* Choose parameter "start" to start and "stop" to kill all processes
 
 ### Autostart
 
 If you execute the powershell script with the above commands, you have to rerun it every relogin or startup.
 In order to autostart the script, I made an easy-to-use installer.
 
-1\. Download the ```installer.bat``` from the ```installer``` directory.
-2\. Double-Click it.
-3\. Now you will see this cmd window.
+- Download the ```installer.bat``` from the ```installer``` directory.
+- Double-Click it.
+- Now you will see this cmd window.
 
 ![install](http://www.apertured.tk/host/install.png)
 
-  4\. Now press "y" to start the installation or "n" to abort it.
-  5\. Now this image will pop up:
+- Now press "y" to start the installation or "n" to abort it.
+- Now this image will pop up:
 
 ![install2](http://www.apertured.tk/host/install2.png)
 
-  6\. Press "y" to install the auto-updater or "n" to not install it (it will work anyways, I just recommended you to install the updater).
+- Press "y" to install the auto-updater or "n" to not install it (it will work anyways, I just recommended you to install the updater).
 
 ----> You can now close the windows or press any key to close it. The installation is complete.
 
