@@ -1,7 +1,7 @@
 # Changelog:
 
 v.1.5.1 (1 October 2016)
-* Stability improvement
+* Stability improvements
 * Bugfixes
 
 v.1.5. (19 September 2016)
