@@ -2,7 +2,7 @@
 ::-------------------------------------------------------------------
 :: THIS IS THE CURRENT VERSION
 SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
-SET uversion=4
+SET uversion=5
 
 ::-------------------------------------------------------------------
 TITLE FSP Updater v%uversion%
@@ -45,10 +45,10 @@ goto unrecog
 del %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat
 cls
 echo.
-echo Installing new files...
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/installer/fake-sandbox-installer.bat', '%appdata%\Fake-SandboxProcesses\fsp-installer_update.bat')"
 echo Downloading...
-ping -n 3 127.0.0.1>NUL
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/installer/fake-sandbox-installer.bat', '%appdata%\Fake-SandboxProcesses\fsp-installer_update.bat')"
+echo Installing new files...
+ping -n 1 127.0.0.1>NUL
 
 if exist %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat goto continue
 goto dlerror
@@ -115,12 +115,3 @@ if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (
 	start /min %appdata%\Fake-SandboxProcesses\update-installer.bat
 	exit
 )
-exit@echo off
-echo Downloading new updater...
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', 'C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\updater_new.bat')"
-ping -n 2 127.0.0.1>NUL
-if exist C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\updater_new.bat (
-	start /min C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\update-installer.bat
-	exit
-)
-exit
