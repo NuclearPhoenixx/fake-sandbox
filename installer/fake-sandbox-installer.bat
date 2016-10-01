@@ -23,7 +23,7 @@ SET @proc="WinDbg.exe","idaq.exe","wireshark.exe","vmacthlp.exe","VBoxService.ex
 :: Title and Version code
 TITLE Fake-Sandbox Installer
 COLOR 0F
-SET @v=1.5.1
+SET @v=1.6
 SET path=%~dp0
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Just some nice user interface things
@@ -40,32 +40,13 @@ if /i %ANSWER%==n (goto no)
 goto unrecog
 
 :: -------------------------------------------------------------------------------------------------------------------------------
-:: Creation of the file that will execute the Powershell script upon startup
-:install
-del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-
-echo @echo off>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo :: This file is part of the fake-processes-installer (Version %@v%)>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo :: available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo TITLE Fake-Sandbox is starting...>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo echo Starting main script....>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo echo Starting updater....>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo start /MIN %appdata%\Fake-SandboxProcesses\updater.bat>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-
-:: -------------------------------------------------------------------------------------------------------------------------------
 :: Creation of the fake-sandbox.ps1 script in the new directory %appdata%\Fake-SanboxProcesses\
+:install
 del "%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 del "%appdata%\Fake-SandboxProcesses\current_version.txt"
 if not exist %appdata%\Fake-SandboxProcesses\ (md "%appdata%\Fake-SandboxProcesses\")
 
-echo %@v%>"%appdata%\Fake-SandboxProcesses\current_version.txt"
-
-echo # This file is part of the fake-processes-installer (Version %@v%)>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
+echo # This file is part of the fake-processes-installer (Version %@v%)>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 echo # available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 echo.>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 echo $fakeProcesses = @(%@proc%)>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
@@ -87,6 +68,38 @@ echo.>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 echo     Set-Location $oldpwd>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 
 :: -------------------------------------------------------------------------------------------------------------------------------
+:: Creation of the file that will execute the Powershell script upon startup
+del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+
+echo @echo off>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo :: This file is part of the fake-processes-installer (Version %@v%)>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo :: available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo TITLE Fake-Sandbox is starting...>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo echo Starting main script....>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+
+cls
+echo.
+SET /P asw=Would you like to enable the auto-updater to search and install updates regularly? (y/n): 
+if /i %asw%==y (goto updater)
+if /i %asw%==n (
+	echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+	goto done
+	)
+goto unrecog
+
+:: This does write the 
+:updater
+echo %@v%>"%appdata%\Fake-SandboxProcesses\current_version.txt"
+
+echo echo Starting updater....>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo start /MIN %appdata%\Fake-SandboxProcesses\updater.bat>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo exit>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+
+:: -------------------------------------------------------------------------------------------------------------------------------
 :: Creation of the updater-updater (lol) script in the same directory
 echo :: This file is part of the fake-processes-installer (Version %@v%)>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo :: available on https://www.github.com/aperture-diversion/fake-sandbox/ .>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
@@ -103,10 +116,10 @@ echo exit>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Creation of the updater.bat script in the same directory
-echo @echo off>>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo @echo off>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo echo Downloading new updater...>>"%appdata%\Fake-SandboxProcesses\updater.bat"
-echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')">>"%appdata%\Fake-SandboxProcesses\updater.bat"
-echo ping -n 2 127.0.0.1^>NUL>>"%appdata%\Fake-SandboxProcesses\updater.bat">>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')">>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo ping -n 1 127.0.0.1^>NUL>>"%appdata%\Fake-SandboxProcesses\updater.bat">>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo	if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (>>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo		start /min %appdata%\Fake-SandboxProcesses\update-installer.bat>>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo		exit>>"%appdata%\Fake-SandboxProcesses\updater.bat"
@@ -118,6 +131,7 @@ echo exit>>"%appdata%\Fake-SandboxProcesses\updater.bat"
 :: <---- delete this line and add "pause" instead to enable debugging.
 :: -------------------------------------------------------------------------------------------------------------------------------
 :: Look for any error:
+:done
 if errorlevel 1 goto error
 COLOR 0A
 cls
