@@ -9,7 +9,7 @@
 #
 # Usage (CMD): Powershell.exe -executionpolicy remotesigned -File "C:\Full\Path\To\File\fake-sandbox.ps1" -action {start,stop}
 
-param([Parameter(Mandatory=$true)][string]$action)
+$action = read-host " What do you want to do? (start/stop)"
 
 # Your processes come here:
 $fakeProcesses = @("WinDbg.exe","idaq.exe","wireshark.exe", "vmacthlp.exe", "VBoxService.exe", "VBoxTray.exe", "procmon.exe", "ollydbg.exe", "vmware-tray.exe", "idag.exe", "ImmunityDebugger.exe")
