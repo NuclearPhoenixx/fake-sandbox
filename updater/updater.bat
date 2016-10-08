@@ -2,7 +2,7 @@
 ::-------------------------------------------------------------------
 :: THIS IS THE CURRENT VERSION
 SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
-SET uversion=5
+SET uversion=6
 
 ::-------------------------------------------------------------------
 TITLE FSP Updater v%uversion%
@@ -10,6 +10,7 @@ ping -n 5 127.0.0.1>NUL
 
 ::-------------------------------------------------------------------
 :: Download new uversion.txt
+echo [*] Getting latest updater version number...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/uversion', '%appdata%\Fake-SandboxProcesses\uversion.txt')"
 ping -n 1 127.0.0.1>NUL
 
@@ -20,6 +21,7 @@ del %appdata%\Fake-SandboxProcesses\uversion.txt
 
 ::-------------------------------------------------------------------
 :: Download new version.txt
+echo [*] Getting latest FSP version...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/version', '%appdata%\Fake-SandboxProcesses\version.txt')"
 ping -n 1 127.0.0.1>NUL
 
@@ -90,7 +92,9 @@ exit
 
 :: If there is no new version, delete the version.txt and exit
 :ok
+echo [*] No new version found, cleaning up...
 del "%appdata%\Fake-SandboxProcesses\version.txt"
+echo [*] Closing...
 exit
 
 :: If you didn't type in "y" for yes or "n" for no then this will start
