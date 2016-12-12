@@ -2,7 +2,7 @@
 
 v.1.6.1 (12 December 2016)
 * The comments were rewritten completely.
-* Some visual changes to the installer and updater
+* Some visual changes to the installer and updater.
 * Reduced the size of all scripts by removing unnecessary stuff.
 
 v.1.6 (1 October 2016)
