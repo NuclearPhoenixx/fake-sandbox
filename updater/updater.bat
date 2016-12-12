@@ -1,15 +1,12 @@
 @echo off
-::-------------------------------------------------------------------
-:: THIS IS THE CURRENT VERSION
-SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
-SET uversion=6
 
-::-------------------------------------------------------------------
+:: Start by setting some version numbers and the title
+SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
+SET uversion=7
 TITLE FSP Updater v%uversion%
 ping -n 5 127.0.0.1>NUL
 
-::-------------------------------------------------------------------
-:: Download new uversion.txt
+:: Download updater version number
 echo [*] Getting latest updater version number...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/uversion', '%appdata%\Fake-SandboxProcesses\uversion.txt')"
 ping -n 1 127.0.0.1>NUL
@@ -19,8 +16,7 @@ SET /p nuv=<"%appdata%\Fake-SandboxProcesses\uversion.txt"
 if not "%nuv%"=="%uversion%" goto new_updater
 del %appdata%\Fake-SandboxProcesses\uversion.txt
 
-::-------------------------------------------------------------------
-:: Download new version.txt
+:: Download FSP version number
 echo [*] Getting latest FSP version...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/version', '%appdata%\Fake-SandboxProcesses\version.txt')"
 ping -n 1 127.0.0.1>NUL
@@ -32,7 +28,7 @@ if "%nv%"=="%v%" goto ok
 :: Ask to install the new version
 SET /p version=<"%appdata%\Fake-SandboxProcesses\version.txt"
 del "%appdata%\Fake-SandboxProcesses\version.txt"
-msg * A new version (%version%) of Fake Sandbox Processes is available!
+msg * A new version (v%version%) of Fake Sandbox Processes is available!
 cls
 echo.
 echo Version %version% is now available. Changelog: https://github.com/Aperture-Diversion/fake-sandbox/blob/master/Changelog.md
@@ -47,7 +43,7 @@ goto unrecog
 del %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat
 cls
 echo.
-echo Downloading...
+echo [*] Downloading...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/installer/fake-sandbox-installer.bat', '%appdata%\Fake-SandboxProcesses\fsp-installer_update.bat')"
 echo Installing new files...
 ping -n 1 127.0.0.1>NUL
@@ -55,7 +51,7 @@ ping -n 1 127.0.0.1>NUL
 if exist %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat goto continue
 goto dlerror
 
-:: If everything went fine, this will execute
+:: If everything went fine this will execute
 :continue
 cls
 echo.
@@ -68,12 +64,12 @@ ping -n 1 127.0.0.1>NUL
 del %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat
 exit
 
-:: If there was an error downloading the update, this will show up.
+:: If there was an error downloading the update this will show up
 :dlerror
 cls
 COLOR 0C
 echo.
-echo There was an error downloading the update.
+echo An error occured while downloading the new update!
 echo Please try again later.
 echo.
 echo Press any key to exit...
@@ -92,7 +88,7 @@ exit
 
 :: If there is no new version, delete the version.txt and exit
 :ok
-echo [*] No new version found, cleaning up...
+echo  No new version found, cleaning up...
 del "%appdata%\Fake-SandboxProcesses\version.txt"
 echo [*] Closing...
 exit
@@ -103,16 +99,17 @@ COLOR 0C
 cls
 echo.
 echo An error occured!
-echo Unrecognized command. You have to choose "y" for yes and "n" for no.
+echo Unrecognized command. You have to choose 'y' for yes and 'n' for no.
 echo.
 echo Press any key to exit...
 echo.
-pause > NUL
+pause>NUL
 exit
 
 :new_updater
 cls
-echo Downloading new updater...
+echo  New updater version found!
+echo [*] Downloading new updater...
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')"
 ping -n 2 127.0.0.1>NUL
 if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (
