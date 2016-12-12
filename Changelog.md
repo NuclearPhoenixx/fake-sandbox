@@ -1,5 +1,10 @@
 # Changelog:
 
+v.1.6.1 (12 December 2016)
+* The comments were rewritten completely.
+* Some visual changes to the installer and updater
+* Reduced the size of all scripts by removing unnecessary stuff.
+
 v.1.6 (1 October 2016)
 * You can now choose to install FSP with or without the auto updater!
 * Restart instead of exit after typing in an unrecognized command.
