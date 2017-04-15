@@ -85,4 +85,4 @@ Successfully tested on following Windows versions:
 * Win 8.1 Home
 * Win 7 Professional
 
-(c) Aperture Diversion, Phoenix1747. 2016.
+© Aperture Diversion, Phoenix1747. 2017.
