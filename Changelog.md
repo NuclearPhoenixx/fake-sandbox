@@ -1,5 +1,9 @@
 # Changelog:
 
+v.1.6.2 (16 April 2017)
+* Some general improvements to the updater and installer.
+* Fixes.
+
 v.1.6.1 (12 December 2016)
 * The comments were rewritten completely.
 * Some visual changes to the installer and updater.
