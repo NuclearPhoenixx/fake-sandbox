@@ -73,7 +73,7 @@ echo COLOR 0F>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-san
 echo TITLE FSP is starting...>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo echo [*] Starting FSP script...>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "C:\Users\Matthias\AppData\Roaming\Fake-SandboxProcesses\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -File "%USERPROFILE%\AppData\Roaming\Fake-SandboxProcesses\fake-sandbox.ps1">>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 
 cls
 echo.
