@@ -19,7 +19,7 @@ SET @proc="WinDbg.exe","idaq.exe","wireshark.exe","vmacthlp.exe","VBoxService.ex
 :: Title and Version code
 TITLE Fake Sandbox Processes Installer
 COLOR 0F
-SET @v=1.6.2
+SET @v=1.6.3
 SET path=%~dp0
 
 :: Just some nice user interface things
