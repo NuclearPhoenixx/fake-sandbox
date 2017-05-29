@@ -1,5 +1,8 @@
 # Changelog:
 
+v.1.6.3 (29 May 2017)
+* Fixed user path mistake.
+
 v.1.6.2 (16 April 2017)
 * Some general improvements to the updater and installer.
 * Fixes.
