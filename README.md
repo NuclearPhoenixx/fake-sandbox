@@ -86,4 +86,4 @@ Successfully tested on following Windows versions:
 * Win 8.1 Home
 * Win 7 Professional
 
-Aperture Diversion, Phoenix1747. 2017.
+2017, Phoenix1747
