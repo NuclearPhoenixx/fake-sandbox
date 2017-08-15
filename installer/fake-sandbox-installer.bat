@@ -25,7 +25,7 @@ SET path=%~dp0
 :: Just some nice user interface things
 cls
 echo Fake-Sandbox-Processes installation script. Version %@v%, 2017.
-echo Visit https://www.github.com/aperture-diversion/fake-sandbox/ for updates and fixes.
+echo Visit https://www.github.com/phoenix1747/fake-sandbox/ for updates and fixes.
 echo.
 echo.
 echo Firstly, thanks for your interest in FSP! Let's get started now.
