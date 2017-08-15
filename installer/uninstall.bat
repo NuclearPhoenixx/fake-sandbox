@@ -34,7 +34,7 @@ echo.
 echo Successfully removed FSP. All remaining processes will be gone once you relogin or reboot your PC.
 echo.
 echo # Sorry to see you go. Got any feedback? Please submit it here:
-echo # https://github.com/aperture-diversion/fake-sandbox/issues
+echo # https://github.com/phoenix1747/fake-sandbox/issues
 echo.
 echo.
 echo Press any key to exit...
