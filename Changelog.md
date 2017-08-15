@@ -1,5 +1,8 @@
 # Changelog:
 
+v.1.6.4 (15 August 2017)
+* Replaced dead links.
+
 v.1.6.3 (29 May 2017)
 * Fixed user path mistake.
 
