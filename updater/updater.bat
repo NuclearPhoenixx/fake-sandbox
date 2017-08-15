@@ -3,13 +3,13 @@
 :: Start by setting some version numbers and the title
 COLOR 0F
 SET /p v=<"%appdata%\Fake-SandboxProcesses\current_version.txt"
-SET uversion=8
+SET uversion=9
 TITLE FSP Updater v%uversion%
 ping -n 5 127.0.0.1>NUL
 
 :: Download updater version number
 echo [*] Getting latest updater version number...
-start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/uversion', '%appdata%\Fake-SandboxProcesses\uversion.txt')"
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/uversion', '%appdata%\Fake-SandboxProcesses\uversion.txt')"
 ping -n 2 127.0.0.1>NUL
 
 :: Has the version code changed?
@@ -19,7 +19,7 @@ del %appdata%\Fake-SandboxProcesses\uversion.txt
 
 :: Download FSP version number
 echo [*] Getting latest FSP version number...
-start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/version', '%appdata%\Fake-SandboxProcesses\version.txt')"
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/version', '%appdata%\Fake-SandboxProcesses\version.txt')"
 ping -n 2 127.0.0.1>NUL
 
 :: Has the version code changed?
@@ -33,7 +33,7 @@ msg * A new version (v%version%) of Fake-Sandbox-Processes is available!
 cls
 echo.
 echo Version %version% is now available!
-echo Changelog: https://github.com/Aperture-Diversion/fake-sandbox/blob/master/Changelog.md
+echo Changelog: https://github.com/Phoenix1747/fake-sandbox/blob/master/Changelog.md
 echo.
 SET /P ANSWER=# Would you like to download and install the update? (y/n): 
 if /i %ANSWER%==y goto install
@@ -46,7 +46,7 @@ del %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat
 cls
 echo.
 echo [*] Downloading...
-start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/installer/fake-sandbox-installer.bat', '%appdata%\Fake-SandboxProcesses\fsp-installer_update.bat')"
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/installer/fake-sandbox-installer.bat', '%appdata%\Fake-SandboxProcesses\fsp-installer_update.bat')"
 ping -n 2 127.0.0.1>NUL
 if exist %appdata%\Fake-SandboxProcesses\fsp-installer_update.bat goto continue
 goto dlerror
@@ -104,7 +104,7 @@ exit
 cls
 echo [*] New updater version found!
 echo [*] Downloading new updater...
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')"
+start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')"
 ping -n 2 127.0.0.1>NUL
 if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (
 	start /min %appdata%\Fake-SandboxProcesses\update-installer.bat
