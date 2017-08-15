@@ -44,7 +44,7 @@ if not exist %appdata%\Fake-SandboxProcesses\ (md "%appdata%\Fake-SandboxProcess
 del "%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 del "%appdata%\Fake-SandboxProcesses\current_version.txt"
 
-echo # This file is part of Fake Sandbox Processes (Version %@v%) available on https://www.github.com/aperture-diversion/fake-sandbox/>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
+echo # This file is part of Fake Sandbox Processes (Version %@v%) available on https://www.github.com/phoenix1747/fake-sandbox/>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 echo.>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 echo $fakeProcesses = @(%@proc%)>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
 echo.>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1"
@@ -68,7 +68,7 @@ echo     Set-Location $oldpwd>>"%appdata%\Fake-SandboxProcesses\fake-sandbox.ps1
 del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 
 echo @echo off>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
-echo :: This file is part of Fake Sandbox Processes (Version %@v%) available on https://www.github.com/aperture-diversion/fake-sandbox/>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+echo :: This file is part of Fake Sandbox Processes (Version %@v%) available on https://www.github.com/phoenix1747/fake-sandbox/>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo COLOR 0F>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo TITLE FSP is starting...>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 echo.>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
@@ -93,7 +93,7 @@ echo echo [*] Starting updater....>>"%appdata%\Microsoft\Windows\Start Menu\Prog
 echo start /MIN %appdata%\Fake-SandboxProcesses\updater.bat>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
 
 :: Creation of the updater-updater (lol) script in the same directory
-echo :: This file is part of Fake Sandbox Processes (Version %@v%) available on https://www.github.com/aperture-diversion/fake-sandbox/>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
+echo :: This file is part of Fake Sandbox Processes (Version %@v%) available on https://www.github.com/phoenix1747/fake-sandbox/>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo @echo off>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo COLOR 0F>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
 echo TITLE Installing latest version of FSP updater...>>"%appdata%\Fake-SandboxProcesses\update-installer.bat"
@@ -111,7 +111,7 @@ echo @echo off>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo COLOR 0F>>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo echo [*] First install of FSP updater...>>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo echo [*] Downloading...>>"%appdata%\Fake-SandboxProcesses\updater.bat"
-echo start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Aperture-Diversion/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')">>"%appdata%\Fake-SandboxProcesses\updater.bat"
+echo start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/updater.bat', '%appdata%\Fake-SandboxProcesses\updater_new.bat')">>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo ping -n 2 127.0.0.1^>NUL>>"%appdata%\Fake-SandboxProcesses\updater.bat">>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo	if exist %appdata%\Fake-SandboxProcesses\updater_new.bat (>>"%appdata%\Fake-SandboxProcesses\updater.bat"
 echo		start /min %appdata%\Fake-SandboxProcesses\update-installer.bat>>"%appdata%\Fake-SandboxProcesses\updater.bat"
