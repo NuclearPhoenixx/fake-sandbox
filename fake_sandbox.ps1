@@ -4,7 +4,7 @@
 # 
 # *------------------------------------------------------------------------------------------------------------------*
 # | This is the updated version with no CPU load at all. I will also add some more fake processes in future updates. |
-# | Maintained by Phoenix1747, get updates and fixes on https://www.github.com/aperture-diversion/fake-sandbox/ .    |
+# | Maintained by Phoenix1747, get updates and fixes on https://www.github.com/phoenix1747/fake-sandbox/ .           |
 # *------------------------------------------------------------------------------------------------------------------*
 #
 # Usage (CMD): Powershell.exe -executionpolicy remotesigned -File "C:\Full\Path\To\File\fake-sandbox.ps1" -action {start,stop}
