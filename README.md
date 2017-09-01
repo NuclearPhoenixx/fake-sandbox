@@ -10,23 +10,23 @@ You can also download my slightly optimized script in the main directory. The fi
 
 ### Script-Features
 
-* Most (good) Spyware (NOT the Hitler-Ransomware) won't spy on you, as long as the processes run which are created by this script.
-* No requirements (you need to have Powershell, but it is already preinstalled on all Windows versions since Win 7)
+* Most (good) Spyware (NOT the Hitler Ransomware) won't spy on you, as long as the processes run which are created by this script.
+* No requirements (unless you haven't uninstalled Powershell)
 * Runs on every Windows since Vista
 * Minmal size
 * No CPU load
-* Easy-to-use
-* Offline package - no internet connection required
+* Easy to use
+* No internet connection required
 
 ### Installer-Features
 
-* Install the script to your autostart directory
-* More easy-to-use than the original script (you only have to install it once, it's literally just pressing two random keys)
+* Automatically install the script to your autostart directory
+* More easy-to-use than the original script (you only have to install it once - it's literally just pressing two random keys)
 * Easy uninstaller
 * No requirements either
 * Minimal size
-* Offline package - no internet connection required
-* Automatic updater included, if you want!
+* Still no internet connection required
+* Automatic updater included - only if you want!
 
 ----------------------------------------
 
@@ -47,11 +47,11 @@ If you are using the explorer, just follow these steps:
 
 ### Autostart
 
-If you execute the powershell script with the above commands, you have to rerun it every relogin or startup.
+If you execute the powershell script with the above commands, you have to rerun it every login or startup.
 In order to autostart the script, I made an easy-to-use installer.
 
 <ol>
-  <li>Download the ```fake-sandbox-installer.bat``` from the ```installer``` directory.</li>
+  <li>Download the ```fake-sandbox-installer.bat``` file from the release section.</li>
   <li>Double-Click it.</li>
   <li>Now you will see this cmd window:</li>
 
@@ -73,10 +73,10 @@ In order to autostart the script, I made an easy-to-use installer.
 
 #### Uninstall
 
-If you no longer want to run this program, just download the ```uninstall.bat``` file from the ```installer``` directory.
-Then run it and follow the instructions (well, there basically arent any. You just have to press a key twice.)
+If you no longer want to run this program, just download the ```uninstall.bat``` file from the release section.
+Then run it and follow the instructions (well, there basically aren't any. You just have to press a random key twice.)
 
-![uninstall](http://www.apertured.tk/host/uninstall.png)
+![uninstall](https://www.apertured.tk/host/uninstall.png)
 
 ----------------------------------------
 
