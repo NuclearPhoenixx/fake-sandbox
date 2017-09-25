@@ -117,6 +117,21 @@ echo echo [*] Starting updater...
 echo start /MIN %appdata%\FakeSandboxProcesses\updater.bat
 )>>"%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fsp.bat"
 
+:: Creation of the updater.bat script in the install directory
+(
+echo @echo off
+echo COLOR 0F
+echo echo [*] First install of FSP updater...
+echo echo [*] Downloading...
+echo start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/updater.bat', '%appdata%\FakeSandboxProcesses\updater_new.bat')"
+echo ping -n 2 127.0.0.1^>NUL
+echo	if exist %appdata%\FakeSandboxProcesses\updater_new.bat (
+echo		start /min %appdata%\FakeSandboxProcesses\update-installer.bat
+echo		exit
+echo	^)
+echo exit
+)>"%appdata%\FakeSandboxProcesses\updater.bat"
+
 :: Creation of the updater-updater (lol) script in the same directory
 (
 echo :: This file is part of Fake Sandbox Processes (Version %@v%^) available on https://github.com/phoenix1747/fake-sandbox/
@@ -132,21 +147,6 @@ echo del %appdata%\FakeSandboxProcesses\updater_new.bat
 echo start /MIN %appdata%\FakeSandboxProcesses\updater.bat
 echo exit
 )>"%appdata%\FakeSandboxProcesses\update-installer.bat"
-
-:: Creation of the updater.bat script in the install directory
-(
-echo @echo off
-echo COLOR 0F
-echo echo [*] First install of FSP updater...
-echo echo [*] Downloading...
-echo start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient^).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/updater.bat', '%appdata%\FakeSandboxProcesses\updater_new.bat')"
-echo ping -n 2 127.0.0.1^>NUL
-echo	if exist %appdata%\FakeSandboxProcesses\updater_new.bat (
-echo		start /min %appdata%\FakeSandboxProcesses\update-installer.bat
-echo		exit
-echo	^)
-echo exit
-)>"%appdata%\FakeSandboxProcesses\updater.bat"
 
 :: Look for any installation-error
 :done
