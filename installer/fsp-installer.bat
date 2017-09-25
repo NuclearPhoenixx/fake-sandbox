@@ -50,7 +50,7 @@ goto unrecog
  
 :: This will remove 
 :uninstally
-del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fake-sandbox.bat"
+del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fsp.bat"
 rmdir /s /q "%appdata%\FakeSandboxProcesses\"
 goto DoneUninstall
 
