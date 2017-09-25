@@ -1,86 +1,78 @@
 # fake sandbox processes (FSP)
 ![latest version](https://img.shields.io/github/release/aperture-diversion/fake-sandbox.svg) ![issues](https://img.shields.io/github/issues/aperture-diversion/fake-sandbox.svg) ![Downloads](https://img.shields.io/github/downloads/aperture-diversion/fake-sandbox/latest/total.svg)
 
-This small script will simulate fake processes of analysis sandbox/VM software that some malware will try to avoid.
+This small script will simulate fake processes of analysis, sandbox and/or VM software that some malware will try to avoid.
 You can download the original script (made by @x0rz ) in the ```orig```  directory.
 
-You can also download my slightly optimized script in the main directory. The file is named ```fake-sandbox.ps1```.
+You can also download my slightly optimized script in the main directory. The file is named ```fsp.ps1```.
 
-----------------------------------------
+---
 
 ### Script-Features
 
-* Most (good) Spyware (NOT the Hitler Ransomware) won't spy on you, as long as the processes run which are created by this script.
-* No requirements (unless you haven't uninstalled Powershell)
+* Some (good) spyware will stop spying on you as long as the processes run, which are created by this script.
+* Requirements: Powershell (preinstalled on Win 7 and newer)
 * Runs on every Windows since Vista
-* Minmal size
+* Tiny size
 * No CPU load
 * Easy to use
-* No internet connection required
+* No network connection required
 
 ### Installer-Features
 
 * Automatically install the script to your autostart directory
-* More easy-to-use than the original script (you only have to install it once - it's literally just pressing two random keys)
-* Easy uninstaller
-* No requirements either
-* Minimal size
-* Still no internet connection required
+* Extremely easy to install
+* Uninstaller to purge all files
+* NO requirements
+* Tiny size
+* Offline package
 * Automatic updater included - only if you want!
 
-----------------------------------------
+---
 
 ### Usage:
 
-If you are using the command line, this is your command:
+Open the command line and paste this command (don't forget to adjust the path!):
 
-```
-Powershell -File "C:\Full\Path\To\File\fake-sandbox.ps1" -action {start,stop}
-```
-Start will obviously start all the commands, stop will do the opposite.
+``` Powershell -executionpolicy remotesigned -File "Your\Path\fsp.ps1" ```
 
-If you are using the explorer, just follow these steps:
-
-* Right-click on the file
-* Choose "Run with Powershell"
-* Choose parameter "start" to start and "stop" to kill all processes
+After pressing ENTER you will be asked to either start or stop all processes.
 
 ### Autostart
 
-If you execute the powershell script with the above commands, you have to rerun it every login or startup.
-In order to autostart the script, I made an easy-to-use installer.
+If you execute the powershell script with the above command, you will have to rerun it after every login or startup.
+In order to autostart the script I made an easy-to-use installer.
 
 <ol>
-  <li>Download the ```fake-sandbox-installer.bat``` file from the release section.</li>
-  <li>Double-Click it.</li>
+  <li>Download the ```fsp-installer.bat``` file from the release section.</li>
+  <li>Double-click it.</li>
   <li>Now you will see this cmd window:</li>
+  
+	<br><img src="https://apertured.tk/host/install.png"><br>
+		
+  <li>Choose "i" to start the installer.</li>
+  <li>Now enter "y" to start installing or "n" to abort.</li>
+  <li>If you entered "y" this image will now pop up:</li>
 
-<br>
-<img src="https://apertured.tk/host/install.png">
-<br>
+	<br><img src="https://apertured.tk/host/install2.png"><br>
 
-  <li>Now press "y" to start the installation or "n" to abort it.</li>
-  <li>Now this image will pop up:</li>
-
-<br>
-<img src="https://apertured.tk/host/install2.png">
-<br>
-
-  <li>Press "y" to install the auto-updater or "n" to not install it (it will work anyways, I just recommended you to install the updater).</li>
+  <li>Enter "y" to install the auto-updater or "n" to not install it (it'll work anyways, but it is recommended to install the updater).</li>
 </ol>
 
----> You can now close the windows or press any key to close it. The installation is complete.
+---> You can now close the window or press any key to close it. The (un)installation is complete.
 
 #### Uninstall
 
-If you no longer want to run this program, just download the ```uninstall.bat``` file from the release section.
-Then run it and follow the instructions (well, there basically aren't any. You just have to press a random key twice.)
+If you no longer want this program on your computer, you'll need the ```fsp-installer.bat``` file again.
+Run it and chose "u" to start the uninstallation process. Then enter "y" if you are ready to uninstall it.
 
 ![uninstall](https://www.apertured.tk/host/uninstall.png)
 
-----------------------------------------
+If the process was successful, you'll see a confirmation screen.
 
-Successfully tested on following Windows versions:
+---
+
+Successfully tested on the following Windows versions:
 
 * Win 10 Professional
 * Win 8.1 Home
