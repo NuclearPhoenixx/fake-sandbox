@@ -1,25 +1,16 @@
-:: AUTO_UPDATER
 @echo off
+
+:: Start by setting some version numbers and the title
 COLOR 0F
 SET /p v=<"%appdata%\FakeSandboxProcesses\current_version.txt"
-SET uversion=11
+SET uversion=10
 TITLE FSP Updater v%uversion%
-
-:: Wait for internet connection
-SET five=5
-SET count=1
-
-:ping
-ping -n 1 127.0.0.1>NUL
-ping -n 1 8.8.8.8 | find "TTL=">NUL
-SET /A count=count+1
-if %count% GTR %five% exit
-if errorlevel==1 goto ping
+ping -n 5 127.0.0.1>NUL
 
 :: Download updater version number
 echo [*] Getting latest updater version number...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/uversion', '%appdata%\FakeSandboxProcesses\uversion.txt')"
-ping -n 1 127.0.0.1>NUL
+ping -n 2 127.0.0.1>NUL
 
 :: Has the version code changed?
 SET /p nuv=<"%appdata%\FakeSandboxProcesses\uversion.txt"
@@ -29,7 +20,7 @@ del %appdata%\FakeSandboxProcesses\uversion.txt
 :: Download FSP version number
 echo [*] Getting latest FSP version number...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/version', '%appdata%\FakeSandboxProcesses\version.txt')"
-ping -n 1 127.0.0.1>NUL
+ping -n 2 127.0.0.1>NUL
 
 :: Has the version code changed?
 SET /p nv=<"%appdata%\FakeSandboxProcesses\version.txt"
@@ -38,7 +29,7 @@ if "%nv%"=="%v%" goto ok
 :: Ask to install the new version
 SET /p version=<"%appdata%\FakeSandboxProcesses\version.txt"
 del "%appdata%\FakeSandboxProcesses\version.txt"
-msg * A new version (%version%) of Fake Sandbox Processes is available!
+msg * A new version (v%version%) of Fake-Sandbox-Processes is available!
 cls
 echo.
 echo Version %version% is now available!
@@ -49,25 +40,14 @@ if /i %ANSWER%==y goto install
 if /i %ANSWER%==n goto no
 goto unrecog
 
-:new_updater
-echo [*] New updater version found!
-echo [*] Downloading latest updater...
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/updater.bat', '%appdata%\FakeSandboxProcesses\updater_new.bat')"
-ping -n 1 127.0.0.1>NUL
-if exist %appdata%\FakeSandboxProcesses\updater_new.bat (
-	start /min %appdata%\FakeSandboxProcesses\updater-installer.bat
-	exit
-)
-echo An ERROR occured while downloading the new updater. Closing...
-exit
-
 :: If yes then download and install the new version
 :install
 del %appdata%\FakeSandboxProcesses\fsp-installer_update.bat
 cls
+echo.
 echo [*] Downloading...
-start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/installer/fsp-installer.bat', '%appdata%\FakeSandboxProcesses\fsp-installer_update.bat')"
-ping -n 1 127.0.0.1>NUL
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/installer/fake-sandbox-installer.bat', '%appdata%\FakeSandboxProcesses\fsp-installer_update.bat')"
+ping -n 2 127.0.0.1>NUL
 if exist %appdata%\FakeSandboxProcesses\fsp-installer_update.bat goto continue
 goto dlerror
 
@@ -103,7 +83,7 @@ exit
 
 :: If there is no new version, delete the version.txt and exit
 :ok
-echo  -^> No new version found, cleaning up...
+echo  No new version found, cleaning up...
 del "%appdata%\FakeSandboxProcesses\version.txt"
 echo [*] Closing...
 exit
@@ -118,4 +98,17 @@ echo Unrecognized command. You have to choose 'y' for yes or 'n' for no.
 echo.
 echo Press any key to exit...
 pause>NUL
+exit
+
+:new_updater
+cls
+echo [*] New updater version found!
+echo [*] Downloading new updater...
+start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/updater.bat', '%appdata%\FakeSandboxProcesses\updater_new.bat')"
+ping -n 2 127.0.0.1>NUL
+if exist %appdata%\FakeSandboxProcesses\updater_new.bat (
+	start /min %appdata%\FakeSandboxProcesses\update-installer.bat
+	exit
+)
+echo ERROR downloading the new updater. Closing...
 exit
