@@ -1,18 +1,15 @@
 # Simulate fake processes of analysis sandbox/VM  software that some malware will try to evade.
 # This just spawns ping.exe with different names (wireshark.exe, vboxtray.exe, ...)
 # 
-# 
-# *------------------------------------------------------------------------------------------------------------------*
-# | This is the updated version with no CPU load at all. I will also add some more fake processes in future updates. |
-# | Maintained by Phoenix1747, get updates and fixes on https://www.github.com/phoenix1747/fake-sandbox/ .           |
-# *------------------------------------------------------------------------------------------------------------------*
+# This is the updated version with no CPU load at all. I will also add some more fake processes in future updates.
+# Maintained by Phoenix1747, get updates and fixes on https://www.github.com/phoenix1747/fake-sandbox/
 #
-# Usage (CMD): Powershell.exe -executionpolicy remotesigned -File "C:\Full\Path\To\File\fake-sandbox.ps1" -action {start,stop}
+# Usage (CMD): Powershell.exe -executionpolicy remotesigned -File "C:\Full\Path\To\File\fsp.ps1"
 
 $action = read-host " What do you want to do? (start/stop)"
 
 # Your processes come here:
-$fakeProcesses = @("WinDbg.exe","idaq.exe","wireshark.exe", "vmacthlp.exe", "VBoxService.exe", "VBoxTray.exe", "procmon.exe", "ollydbg.exe", "vmware-tray.exe", "idag.exe", "ImmunityDebugger.exe")
+$fakeProcesses = @('WinDbg.exe','idaq.exe','wireshark.exe','vmacthlp.exe','VBoxService.exe','VBoxTray.exe','procmon.exe','ollydbg.exe','vmware-tray.exe','idag.exe','ImmunityDebugger.exe')
 
 # If you type in "start" it will run this:
 if ($action -ceq "start") {
@@ -31,7 +28,7 @@ if ($action -ceq "start") {
 
         # Start infinite ping process (invalid ip) that pings every 3600000 ms (1 hour)
         Start-Process ".\$proc" -WindowStyle Hidden -ArgumentList "-t -w 3600000 -4 1.1.1.1"
-        write-host "[+] Process $proc spawned"
+        write-host "[+] Spawned $proc"
     }
 
     Set-Location $oldpwd

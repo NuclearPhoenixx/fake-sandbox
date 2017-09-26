@@ -78,7 +78,7 @@ echo     Set-Location $binloc
 echo     foreach ($proc in $fakeProcesses^) {
 echo       Copy-Item c:\windows\system32\ping.exe '$binloc\$proc'
 echo       Start-Process '.\$proc' -WindowStyle Hidden -ArgumentList '-t -w 3600000 -4 1.1.1.1'
-echo      write-host '[+] Process $proc spawned'
+echo      write-host '[+] Spawned $proc'
 echo    }
 echo    Set-Location $oldpwd
 )>%appdata%\FakeSandboxProcesses\fsp.ps1
