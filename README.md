@@ -43,21 +43,19 @@ After pressing ENTER you will be asked to either start or stop all processes.
 If you execute the powershell script with the above command, you will have to rerun it after every login or startup.
 In order to autostart the script I made an easy-to-use installer.
 
-<ol>
-  <li>Download the ```fsp-installer.bat``` file from the release section.</li>
-  <li>Double-click it.</li>
-  <li>Now you will see this cmd window:</li>
+* Download the ```fsp-installer.bat``` file from the release section.
+* Double-click it.
+* Now you will see this cmd window:
   
-	<br><img src="https://phoenix1747.github.io/host/install.png"><br>
+ ![install1](https://phoenix1747.github.io/host/install.png)
 		
-  <li>Choose "i" to start the installer.</li>
-  <li>Now enter "y" to start installing or "n" to abort.</li>
-  <li>If you entered "y" this image will now pop up:</li>
+* Choose "i" to start the installer.
+* Now enter "y" to start installing or "n" to abort.
+* If you entered "y" this image will now pop up:
 
-	<br><img src="https://phoenix1747.github.io/host/install2.png"><br>
+![install2](https://phoenix1747.github.io/host/install2.png)
 
-  <li>Enter "y" to install the auto-updater or "n" to not install it (it'll work anyways, but it is recommended to install the updater).</li>
-</ol>
+* Enter "y" to install the auto-updater or "n" to not install it (it'll work anyways, but it is recommended to install the updater).
 
 ---> You can now close the window or press any key to close it. The (un)installation is complete.
 
