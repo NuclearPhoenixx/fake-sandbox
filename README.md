@@ -48,13 +48,13 @@ In order to autostart the script I made an easy-to-use installer.
   <li>Double-click it.</li>
   <li>Now you will see this cmd window:</li>
   
-	<br><img src="https://apertured.tk/host/install.png"><br>
+	<br><img src="https://phoenix1747.github.io/host/install.png"><br>
 		
   <li>Choose "i" to start the installer.</li>
   <li>Now enter "y" to start installing or "n" to abort.</li>
   <li>If you entered "y" this image will now pop up:</li>
 
-	<br><img src="https://apertured.tk/host/install2.png"><br>
+	<br><img src="https://phoenix1747.github.io/host/install2.png"><br>
 
   <li>Enter "y" to install the auto-updater or "n" to not install it (it'll work anyways, but it is recommended to install the updater).</li>
 </ol>
@@ -66,7 +66,7 @@ In order to autostart the script I made an easy-to-use installer.
 If you no longer want this program on your computer, you'll need the ```fsp-installer.bat``` file again.
 Run it and chose "u" to start the uninstallation process. Then enter "y" if you are ready to uninstall it.
 
-![uninstall](https://www.apertured.tk/host/uninstall.png)
+![uninstall](https://phoenix1747.github.io/host/uninstall.png)
 
 If the process was successful, you'll see a confirmation screen.
 
