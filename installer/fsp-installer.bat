@@ -57,7 +57,7 @@ goto DoneUninstall
 :INSTALL
 cls
 echo.
-echo # You are about to install the FSP scripts on your computer (autostart)
+echo # You are about to install the FSP scripts on your computer.
 SET /P ANSWER=# Would you like to continue? (y/n): 
 if /i %ANSWER%==y goto instally
 if /i %ANSWER%==n goto no
