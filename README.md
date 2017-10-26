@@ -1,5 +1,5 @@
 # Fake Sandbox Processes (FSP)
-![latest version](https://img.shields.io/github/release/Phoenix1747/fake-sandbox.svg?style=flat-square) ![issues](https://img.shields.io/github/issues/Phoenix1747/fake-sandbox.svg?style=flat-square) ![Downloads](https://img.shields.io/github/downloads/Phoenix1747/fake-sandbox/total.svg?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/phoenix1747/fake-sandbox.svg?style=flat-square)
+![latest version](https://img.shields.io/github/release/Phoenix1747/fake-sandbox.svg?style=flat-square) ![issues](https://img.shields.io/github/issues/Phoenix1747/fake-sandbox.svg?style=flat-square) ![open pr](https://img.shields.io/github/issues-pr-raw/phoenix1747/fake-sandbox.svg?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/phoenix1747/fake-sandbox.svg?style=flat-square)
 
 This small script will simulate fake processes of analysis, sandbox and/or VM software that some malware will try to avoid.
 You can download the original script (made by @x0rz ) in the ```orig```  directory.
