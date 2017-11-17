@@ -18,7 +18,7 @@ SET @proc='WinDbg.exe','idaq.exe','wireshark.exe','vmacthlp.exe','VBoxService.ex
 :: Title and Version code
 TITLE Fake Sandbox Processes Installer
 COLOR 0F
-SET @v=1.7.1
+SET @v=1.7.2
 SET path=%~dp0
 
 :: Just some nice user interface things
@@ -76,9 +76,9 @@ echo     New-Item -Type Directory -Path $binloc
 echo     $oldpwd = $pwd
 echo     Set-Location $binloc
 echo     foreach ($proc in $fakeProcesses^) {
-echo       Copy-Item c:\windows\system32\ping.exe '$binloc\$proc'
-echo       Start-Process '.\$proc' -WindowStyle Hidden -ArgumentList '-t -w 3600000 -4 1.1.1.1'
-echo      write-host '[+] Spawned $proc'
+echo       Copy-Item c:\windows\system32\ping.exe "$binloc\$proc"
+echo       Start-Process ".\$proc" -WindowStyle Hidden -ArgumentList "-t -w 3600000 -4 1.1.1.1"
+echo      write-host "[+] Spawned $proc"
 echo    }
 echo    Set-Location $oldpwd
 )>%appdata%\FakeSandboxProcesses\fsp.ps1
