@@ -198,6 +198,7 @@ exit
 :unrecog
 COLOR 0C
 echo.
+echo.
 echo ^>^> Bad usage. You have to use one of the available letters as command.
 echo.
 echo Press any key to restart...
