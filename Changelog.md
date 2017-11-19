@@ -1,7 +1,7 @@
 # Changelog:
 
 v.1.7.3 (19 November 2017)
-* Removed unnecessary ping timeouts
+* Removed unnecessary ping timeouts - the scripts run much faster now
 * Fixed updater not deleting downloaded files after update
 
 v.1.7.2 (17 November 2017)
