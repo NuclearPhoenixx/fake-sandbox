@@ -161,7 +161,7 @@ cls
 echo.
 echo Successfully removed FSP. All remaining processes will be gone once you relogin or reboot your PC.
 echo.
-echo # Sorry to see you go. Got any feedback? Please submit it here:
+echo # Sorry to see you go. Got any feedback? Please let me know here:
 echo # https://github.com/phoenix1747/fake-sandbox/issues
 echo.
 echo.
