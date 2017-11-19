@@ -1,5 +1,9 @@
 # Changelog:
 
+v.1.7.3 (19 November 2017)
+* Removed unnecessary ping timeouts
+* Fixed updater not deleting downloaded files after update
+
 v.1.7.2 (17 November 2017)
 * Fixed critical issue #4 by steel9
 

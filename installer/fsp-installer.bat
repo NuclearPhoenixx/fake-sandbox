@@ -18,7 +18,7 @@ SET @proc='WinDbg.exe','idaq.exe','wireshark.exe','vmacthlp.exe','VBoxService.ex
 :: Title and Version code
 TITLE Fake Sandbox Processes Installer
 COLOR 0F
-SET @v=1.7.2
+SET @v=1.7.3
 SET path=%~dp0
 
 :: Just some nice user interface things
@@ -119,7 +119,6 @@ echo COLOR 0F
 echo echo [*] First install of FSP updater...
 echo echo [*] Downloading...
 echo start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/updater.bat', '%appdata%\FakeSandboxProcesses\updater_new.bat')"
-echo ping -n 1 127.0.0.1^>NUL
 echo	if exist %appdata%\FakeSandboxProcesses\updater_new.bat (
 echo		start /min %appdata%\FakeSandboxProcesses\updater-installer.bat
 echo		exit
@@ -135,7 +134,6 @@ echo COLOR 0F
 echo TITLE Installing latest version of FSP updater...
 echo del %appdata%\FakeSandboxProcesses\uversion.txt
 echo move /y %appdata%\FakeSandboxProcesses\updater_new.bat %appdata%\FakeSandboxProcesses\updater.bat
-echo ping -n 1 127.0.0.1^>NUL
 echo del %appdata%\FakeSandboxProcesses\updater_new.bat
 echo start /MIN %appdata%\FakeSandboxProcesses\updater.bat
 echo exit
@@ -152,7 +150,8 @@ echo Thanks for using this program! :)
 echo.
 echo Press any key to exit...
 pause>NUL
-exit
+if not exist %appdata%\FakeSandboxProcesses\updateinprogress.txt exit
+exit /B
 
 :: Look for any uninstallation-error
 :DoneUninstall

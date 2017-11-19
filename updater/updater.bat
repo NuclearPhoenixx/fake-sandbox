@@ -2,7 +2,7 @@
 @echo off
 COLOR 0F
 SET /p v=<"%appdata%\FakeSandboxProcesses\current_version.txt"
-SET uversion=11
+SET uversion=12
 TITLE FSP Updater v%uversion%
 
 :: Wait for internet connection
@@ -19,7 +19,6 @@ if errorlevel==1 goto ping
 :: Download updater version number
 echo [*] Getting latest updater version number...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/uversion', '%appdata%\FakeSandboxProcesses\uversion.txt')"
-ping -n 1 127.0.0.1>NUL
 
 :: Has the version code changed?
 SET /p nuv=<"%appdata%\FakeSandboxProcesses\uversion.txt"
@@ -29,7 +28,6 @@ del %appdata%\FakeSandboxProcesses\uversion.txt
 :: Download FSP version number
 echo [*] Getting latest FSP version number...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/version', '%appdata%\FakeSandboxProcesses\version.txt')"
-ping -n 1 127.0.0.1>NUL
 
 :: Has the version code changed?
 SET /p nv=<"%appdata%\FakeSandboxProcesses\version.txt"
@@ -38,6 +36,7 @@ if "%nv%"=="%v%" goto ok
 :: Ask to install the new version
 SET /p version=<"%appdata%\FakeSandboxProcesses\version.txt"
 del "%appdata%\FakeSandboxProcesses\version.txt"
+:: Msg only works in Windows 7 but it's no deal to just leave the code in here for the other windows versions.
 msg * A new version (%version%) of Fake Sandbox Processes is available!
 cls
 echo.
@@ -53,7 +52,6 @@ goto unrecog
 echo [*] New updater version found!
 echo [*] Downloading latest updater...
 start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/updater.bat', '%appdata%\FakeSandboxProcesses\updater_new.bat')"
-ping -n 1 127.0.0.1>NUL
 if exist %appdata%\FakeSandboxProcesses\updater_new.bat (
 	start /min %appdata%\FakeSandboxProcesses\updater-installer.bat
 	exit
@@ -67,7 +65,6 @@ del %appdata%\FakeSandboxProcesses\fsp-installer_update.bat
 cls
 echo [*] Downloading...
 start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/installer/fsp-installer.bat', '%appdata%\FakeSandboxProcesses\fsp-installer_update.bat')"
-ping -n 1 127.0.0.1>NUL
 if exist %appdata%\FakeSandboxProcesses\fsp-installer_update.bat goto continue
 goto dlerror
 
@@ -76,9 +73,10 @@ goto dlerror
 echo [*] Download successful!
 echo [*] Starting installer...
 echo.
+echo FSP>%appdata%\FakeSandboxProcesses\updateinprogress.txt
 CALL %appdata%\FakeSandboxProcesses\fsp-installer_update.bat
-ping -n 1 127.0.0.1>NUL
 del %appdata%\FakeSandboxProcesses\fsp-installer_update.bat
+del %appdata%\FakeSandboxProcesses\updateinprogress.txt
 exit
 
 :: If there was an error downloading the update this will show up
