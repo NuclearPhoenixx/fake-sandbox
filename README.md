@@ -34,7 +34,7 @@ You can also download my slightly optimized script in the main directory. The fi
 
 Open the command line and paste this command (don't forget to adjust the path!):
 
-``` Powershell -executionpolicy remotesigned -File "Your\Path\fsp.ps1" ```
+``` Powershell -executionpolicy remotesigned -F "Your\Path\fsp.ps1" ```
 
 After pressing ENTER you will be asked to either start or stop all processes.
 
