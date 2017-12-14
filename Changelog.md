@@ -5,7 +5,7 @@ v.1.7.3 (19 November 2017)
 * Fixed updater not deleting downloaded files after update
 
 v.1.7.2 (17 November 2017)
-* Fixed critical issue #4 by steel9
+* Fixed critical issue #4 by @steel9, thanks!
 
 v.1.7.1 (26 September 2017)
 * Smaller optimizations and fixes

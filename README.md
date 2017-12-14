@@ -1,72 +1,71 @@
 # Fake Sandbox Processes (FSP)
 ![latest version](https://img.shields.io/github/release/Phoenix1747/fake-sandbox.svg?style=flat-square) ![issues](https://img.shields.io/github/issues/Phoenix1747/fake-sandbox.svg?style=flat-square) ![open pr](https://img.shields.io/github/issues-pr-raw/phoenix1747/fake-sandbox.svg?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/phoenix1747/fake-sandbox.svg?style=flat-square)
 
-This small script will simulate fake processes of analysis, sandbox and/or VM software that some malware will try to avoid.
-You can download the original script made by @x0rz [here](https://gist.github.com/x0rz/e8b36fee33b87aa7e4e5dfd4c0cfc1a6) (thanks, by the way!).
+This small script will simulate fake processes of analysis, sandbox and VM software that some malware will try to avoid.
+You can download the original script made by @x0rz [here](https://gist.github.com/x0rz/e8b36fee33b87aa7e4e5dfd4c0cfc1a6) (thanks, by the way).
 
-You can also download my slightly optimized script in the main directory. The file is named ```fsp.ps1```.
+You can also download my slightly optimized script from the root directory. The file is named ```fsp.ps1```. This exact script is also used in the FSP installer.
 
 ---
 
 ### Script-Features
 
-* Some (good) spyware will stop spying on you as long as the processes run, which are created by this script.
-* Requirements: Powershell (preinstalled on Win 7 and newer)
-* Runs on every Windows since Vista
-* Tiny size
-* No CPU load
-* Easy to use
-* No network connection required
+* Some (more advanced) spyware might stop executing correctly as long as the created processes run.
+* Requirements: Powershell (preinstalled on Win 7 and newer), that's all.
+* No system load.
+* Easy to use.
 
 ### Installer-Features
 
-* Automatically install the script to your autostart directory
-* Extremely easy to install
-* Uninstaller to purge all files
-* NO requirements
-* Tiny size
-* Offline package
-* Automatic updater included - only if you want!
+* Automatically install the script to your autostart directory, so that you don't have to execute it at every re-login.
+* Requirements: Only Powershell, again.
+* With uninstaller to purge all files.
+* Everything packed into one tiny offline package.
+* Optional updater included, you can choose if you want it or not.
 
 ---
 
 ### Usage:
 
-Open the command line and paste this command (don't forget to adjust the path!):
+Right-click the file and choose "Run with Powershell"
 
-``` Powershell -executionpolicy remotesigned -F "Your\Path\fsp.ps1" ```
+~ OR ~
 
-After pressing ENTER you will be asked to either start or stop all processes.
+Open the command line and paste this command (don't forget to adjust the path):
+
+```Powershell -executionpolicy remotesigned -F 'Your\Path\fsp.ps1'```
+
+After pressing enter you can choose to either start or stop all processes.
 
 ### Autostart
 
-If you execute the powershell script with the above command, you will have to rerun it after every login or startup.
+If you're just using the script and start it manually, you will have to re-run it at every re-login or startup to create the processes again.
 In order to autostart the script I made an easy-to-use installer.
 
-* Download the ```fsp-installer.bat``` file from the release section.
+1. Download the ```fsp-installer.bat``` file from the release section or from the folder ```installer```.
 * Double-click it.
-* Now you will see this cmd window:
-  
+* Now you will see this command prompt window:
+
  ![install1](https://phoenix1747.github.io/host/install.png)
-		
-* Choose "i" to start the installer.
+
+* Choose "i" to start the installation.
 * Now enter "y" to start installing or "n" to abort.
 * If you entered "y" this image will now pop up:
 
-![install2](https://phoenix1747.github.io/host/install2.png)
+ ![install2](https://phoenix1747.github.io/host/install2.png)
 
-* Enter "y" to install the auto-updater or "n" to not install it (it'll work anyways, but it is recommended to install the updater).
+* Enter "y" to install the auto-updater or "n" to not install it (it'll work anyways, but the updater is recommended).
 
----> You can now close the window or press any key to close it. The (un)installation is complete.
+---> You can now close the window or press any key to close it. The installation is complete.
 
 #### Uninstall
 
 If you no longer want this program on your computer, you'll need the ```fsp-installer.bat``` file again.
-Run it and chose "u" to start the uninstallation process. Then enter "y" if you are ready to uninstall it.
+Run it and chose "u" to start the removal process. Then enter "y" if you are ready to purge all created files.
 
 ![uninstall](https://phoenix1747.github.io/host/uninstall.png)
 
-If the process was successful, you'll see a confirmation screen.
+If the process was successful, you'll see a confirmation screen - done.
 
 ---
 
