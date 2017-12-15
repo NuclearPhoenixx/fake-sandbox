@@ -1,22 +1,27 @@
 # Changelog:
 
+v.1.7.4 (15 December 2017)
+* Fixed many linguistic mistakes and sentences that did not make any sense.
+* Small text changes at some prompts.
+* More info about the updater.
+
 v.1.7.3 (19 November 2017)
-* Removed unnecessary ping timeouts - the scripts run much faster now
-* Fixed updater not deleting downloaded files after update
+* Removed unnecessary ping timeouts - the scripts run much faster now.
+* Fixed updater not deleting downloaded files after update.
 
 v.1.7.2 (17 November 2017)
 * Fixed critical issue #4 by @steel9, thanks!
 
 v.1.7.1 (26 September 2017)
-* Smaller optimizations and fixes
+* Smaller optimizations and fixes.
 
 v.1.7 (25 September 2017)
-* Changed installation path
-* Smaller file size
-* Cleaned up code
-* Uninstaller now directly included in the installer
-* Smaller changes and optimizations
-* Bug fixes
+* Changed installation path.
+* Smaller file size.
+* Cleaned up code.
+* Uninstaller now directly included in the installer.
+* Smaller changes and optimizations.
+* Bug fixes.
 
 v.1.6.4 (15 August 2017)
 * Replaced dead links.
