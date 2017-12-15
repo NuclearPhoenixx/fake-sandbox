@@ -2,10 +2,10 @@
 :start
 ::   *-----------------------------------------------------------------------------------------------*
 ::   | This file is writing my optimized version of the fsp.ps1 script to your autostart directory.  |
-::   | After you log into your user account this script your autostart directory.                    |
+::   | After you log into your user account the script will be automatically executed.               |
 ::   |                                                                                               |
-::   | Like the original file, this script will simulate fake processes of analysis sandbox/VM       |
-::   | software some malware will try to evade. This just spawns ping.exe with different names       |
+::   | Like the original file, this script will simulate processes of analysis, sandbox and VM       |
+::   | software that some malware will try to evade. This just spawns ping.exe with different names  |
 ::   | like wireshark.exe, vboxtray.exe, etc...                                                      |
 ::   |                                                                                               |
 ::   | Hint: This works only for the current user. It will start at login and there is no way to     |
@@ -18,36 +18,36 @@ SET @proc='WinDbg.exe','idaq.exe','wireshark.exe','vmacthlp.exe','VBoxService.ex
 :: Title and Version code
 TITLE Fake Sandbox Processes Installer
 COLOR 0F
-SET @v=1.7.3
+SET @v=1.7.4
 SET path=%~dp0
 
 :: Just some nice user interface things
 cls
-echo Fake-Sandbox-Processes installation script. Version %@v%, 2017.
+echo Fake Sandbox Processes installer. Version %@v%, 2017.
 echo Visit https://github.com/phoenix1747/fake-sandbox/ for updates and fixes.
 echo.
 echo.
-echo Firstly, thanks for your interest in FSP! Let's get started now.
+echo Thanks for your interest in FSP! Let's get started now.
 echo.
 echo.
 echo.
-echo # What do you want to do? You can (i)nstall or (u)ninstall this script.
-SET /P ANSWER=# Would you like to continue? (i/u): 
+echo # You can (i)nstall or (u)ninstall this script.
+SET /P ANSWER=# What do you want to do? (i/u):
 if /i %ANSWER%==i goto INSTALL
 if /i %ANSWER%==u goto UNINSTALL
 goto unrecog
 
-:: This is the uninstallation routine
+:: This is the removal routine
 :UNINSTALL
 cls
 echo.
-echo # You are about to uninstall Fake Sandbox Processes from your computer.
-SET /P ANSWER=# Are you sure you want to continue? (y/n): 
+echo # You are about to purge Fake Sandbox Processes from your computer.
+SET /P ANSWER=# Are you sure you want to continue? (y/n):
 if /i %ANSWER%==y goto uninstally
 if /i %ANSWER%==n goto no
 goto unrecog
- 
-:: This will remove 
+
+:: This will purge everything that was previously installed
 :uninstally
 del "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\fsp.bat"
 rmdir /s /q "%appdata%\FakeSandboxProcesses\"
@@ -57,8 +57,8 @@ goto DoneUninstall
 :INSTALL
 cls
 echo.
-echo # You are about to install the FSP scripts on your computer.
-SET /P ANSWER=# Would you like to continue? (y/n): 
+echo # You are about to install Fake Sandbox Processes on your computer.
+SET /P ANSWER=# Would you like to continue? (y/n):
 if /i %ANSWER%==y goto instally
 if /i %ANSWER%==n goto no
 goto unrecog
@@ -97,13 +97,17 @@ cls
 echo.
 COLOR 0E
 echo Would you like to enable the auto-updater to search and install updates regularly? (recommended)
-SET /p asw=Choose (y/n): 
+echo.
+echo This will search for updates at every system boot or login (not after standby/hibernation). It will do so discretely in the background and ask you once it found an update.
+echo.
+echo.
+SET /p asw=Choose (y/n):
 COLOR 0F
 if /i %asw%==y (goto updater)
 if /i %asw%==n (goto done)
 goto unrecog
 
-:: This writes additional code to the execution file and the FSP directory to allow auto-updates
+:: This writes additional code to the startup file and the FSP directory to allow auto-updates
 :updater
 echo %@v%>"%appdata%\FakeSandboxProcesses\current_version.txt"
 
@@ -139,13 +143,13 @@ echo start /MIN %appdata%\FakeSandboxProcesses\updater.bat
 echo exit
 )>"%appdata%\FakeSandboxProcesses\updater-installer.bat"
 
-:: Look for any installation-error
+:: Look for any errors at installation
 :done
 if errorlevel 1 goto error
 COLOR 0A
 cls
 echo.
-echo Done! All files have been installed successfully. FSP will launch after a relogin or reboot.
+echo Done! All files have been installed successfully. FSP will launch after a quick re-login or reboot.
 echo Thanks for using this program! :)
 echo.
 echo Press any key to exit...
@@ -153,13 +157,13 @@ pause>NUL
 if not exist %appdata%\FakeSandboxProcesses\updateinprogress.txt exit
 exit /B
 
-:: Look for any uninstallation-error
+:: Look for any errors at removal
 :DoneUninstall
 if errorlevel 1 goto error
 COLOR 0A
 cls
 echo.
-echo Successfully removed FSP. All remaining processes will be gone once you relogin or reboot your PC.
+echo Successfully removed FSP. All remaining processes will be gone once you re-login or reboot your PC.
 echo.
 echo # Sorry to see you go. Got any feedback? Please let me know here:
 echo # https://github.com/phoenix1747/fake-sandbox/issues
@@ -169,17 +173,16 @@ echo Press any key to exit...
 pause>NUL
 exit
 
-
-:: If there was an error the following commands will be used
+:: If there was an error this will be executed
 :error
 COLOR 0C
 cls
 echo.
 echo An error occured!
-echo If you tried to install this script although it was already installed, ignore this error. 
+echo If you tried to install this script even though it was already installed, ignore this error.
 echo Otherwise, please try again or debug this script.
 echo.
-echo This file can be found here:
+echo This file is located here:
 echo %path:~0,-1%
 echo.
 echo Press any key to exit...
@@ -199,7 +202,7 @@ exit
 COLOR 0C
 echo.
 echo.
-echo ^>^> Bad usage. You have to use one of the available letters as command.
+echo ^>^> Bad usage. You have to use one of the available arguments.
 echo.
 echo Press any key to restart...
 pause>NUL

@@ -1,10 +1,10 @@
-# Simulate fake processes of analysis sandbox/VM  software that some malware will try to evade.
+# Simulate processes of analysis, sandbox and VM software that some malware will try to evade.
 # This just spawns ping.exe with different names (wireshark.exe, vboxtray.exe, ...)
-# 
-# This is the updated version with no CPU load at all. I will also add some more fake processes in future updates.
-# Maintained by Phoenix1747, get updates and fixes on https://www.github.com/phoenix1747/fake-sandbox/
 #
-# Usage (CMD): Powershell.exe -executionpolicy remotesigned -File "C:\Full\Path\To\File\fsp.ps1"
+# This is the updated version with no system load at all. I might also add some more fake processes in future updates.
+# Maintained by Phoenix1747, get updates and fixes on https://github.com/phoenix1747/fake-sandbox/
+#
+# Usage (CMD): Powershell -executionpolicy remotesigned -F "C:\Full\Path\To\File\fsp.ps1"
 
 $action = read-host " What do you want to do? (start/stop)"
 
@@ -53,5 +53,5 @@ else {
     write-host "Bad usage: You need to use either 'start' or 'stop' for this to work!" -foregroundcolor Red
 	write-host "Press any key to close..."
 	cmd /c pause | out-null
-	
+
 }
