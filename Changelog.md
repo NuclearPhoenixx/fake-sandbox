@@ -1,5 +1,8 @@
 # Changelog:
 
+v.1.7.5 (17 December 2017)
+* Fixed updater bug: not removing downloaded files after installing an update.
+
 v.1.7.4 (15 December 2017)
 * Fixed many linguistic mistakes and sentences that did not make any sense.
 * Small text changes at some prompts.
