@@ -1,5 +1,8 @@
 # Changelog:
 
+v.1.7.6 (18 December 2017)
+* Final fix for updater bug: not removing downloaded files after installing an update.
+
 v.1.7.5 (17 December 2017)
 * Fixed updater bug: not removing downloaded files after installing an update.
 
