@@ -18,7 +18,7 @@ SET @proc='WinDbg.exe','idaq.exe','wireshark.exe','vmacthlp.exe','VBoxService.ex
 :: Title and Version code
 TITLE Fake Sandbox Processes Installer
 COLOR 0F
-SET @v=1.7.5
+SET @v=1.7.6
 SET path=%~dp0
 
 :: Just some nice user interface things
@@ -154,7 +154,9 @@ echo Thanks for using this program! :)
 echo.
 echo Press any key to exit...
 pause>NUL
-if exist %appdata%\FakeSandboxProcesses\updateinprogress.txt (exit /b)
++if not exist %appdata%\FakeSandboxProcesses\updateinprogress.txt (exit)
+del %appdata%\FakeSandboxProcesses\updateinprogress.txt
+del %appdata%\FakeSandboxProcesses\fsp-installer_update.bat
 exit
 
 :: Look for any errors at removal
