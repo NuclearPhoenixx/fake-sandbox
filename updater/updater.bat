@@ -2,7 +2,7 @@
 @echo off
 COLOR 0F
 SET /p v=<"%appdata%\FakeSandboxProcesses\current_version.txt"
-SET uversion=12
+SET uversion=13
 TITLE FSP Updater v%uversion%
 
 :: Wait for internet connection
@@ -75,8 +75,6 @@ echo [*] Starting installer...
 echo.
 echo FSP>%appdata%\FakeSandboxProcesses\updateinprogress.txt
 CALL %appdata%\FakeSandboxProcesses\fsp-installer_update.bat
-del %appdata%\FakeSandboxProcesses\fsp-installer_update.bat
-del %appdata%\FakeSandboxProcesses\updateinprogress.txt
 exit
 
 :: If there was an error downloading the update this will show up
