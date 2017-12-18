@@ -18,7 +18,7 @@ You can also download my slightly optimized script from the root directory. The 
 ### Installer-Features
 
 * Automatically install the script to your autostart directory, so that you don't have to execute it at every re-login.
-* Requirements: Only Powershell, again.
+* Requirements: Only Powershell.
 * With uninstaller to purge all files.
 * Everything packed into one tiny offline package.
 * Optional updater included, you can choose if you want it or not.
