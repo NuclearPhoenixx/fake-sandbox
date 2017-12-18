@@ -154,7 +154,7 @@ echo Thanks for using this program! :)
 echo.
 echo Press any key to exit...
 pause>NUL
-+if not exist %appdata%\FakeSandboxProcesses\updateinprogress.txt (exit)
+if not exist %appdata%\FakeSandboxProcesses\updateinprogress.txt (exit)
 del %appdata%\FakeSandboxProcesses\updateinprogress.txt
 del %appdata%\FakeSandboxProcesses\fsp-installer_update.bat
 exit
