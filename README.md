@@ -1,5 +1,5 @@
 # Fake Sandbox Processes (FSP)
-![latest version](https://img.shields.io/github/release/Phoenix1747/fake-sandbox.svg?style=flat-square) ![issues](https://img.shields.io/github/issues/Phoenix1747/fake-sandbox.svg?style=flat-square) ![open pr](https://img.shields.io/github/issues-pr-raw/phoenix1747/fake-sandbox.svg?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/phoenix1747/fake-sandbox.svg?style=flat-square)
+![latest version](https://img.shields.io/github/release/Phoenix1747/fake-sandbox.svg?style=for-the-badge) ![issues](https://img.shields.io/github/issues/Phoenix1747/fake-sandbox.svg?style=for-the-badge) ![open pr](https://img.shields.io/github/issues-pr-raw/phoenix1747/fake-sandbox.svg?style=for-the-badge) ![GitHub last commit](https://img.shields.io/github/last-commit/phoenix1747/fake-sandbox.svg?style=for-the-badge)
 
 This small script will simulate fake processes of analysis, sandbox and VM software that some malware will try to avoid.
 You can download the original script made by @x0rz [here](https://gist.github.com/x0rz/e8b36fee33b87aa7e4e5dfd4c0cfc1a6) (thanks, by the way).
@@ -75,4 +75,4 @@ Successfully tested on the following Windows versions:
 * Win 8.1 Home
 * Win 7 Professional
 
-2017, Phoenix1747.
+2018, Phoenix1747.
