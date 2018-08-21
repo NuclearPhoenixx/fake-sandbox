@@ -74,5 +74,3 @@ Successfully tested on the following Windows versions:
 * Win 10 Professional
 * Win 8.1 Home
 * Win 7 Professional
-
-2018, Phoenix1747.
