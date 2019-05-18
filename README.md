@@ -46,13 +46,13 @@ In order to autostart the script I made an easy-to-use installer.
 2. Double-click it.
 3. Now you will see this command prompt window:
 
-![install1](https://phoenix1747.github.io/host/install.png)
+![install1](screenshots/install.png)
 
 4. Choose "i" to start the installation.
 5. Now enter "y" to start installing or "n" to abort.
 6. If you entered "y" this image will now pop up:
 
-![install2](https://phoenix1747.github.io/host/install2.png)
+![install2](screenshots/install2.png)
 
 7. Enter "y" to install the auto-updater or "n" to not install it (it'll work anyways, but the updater is recommended).
 
@@ -63,7 +63,7 @@ In order to autostart the script I made an easy-to-use installer.
 If you no longer want this program on your computer, you'll need the ```fsp-installer.bat``` file again.
 Run it and chose "u" to start the removal process. Then enter "y" if you are ready to purge all created files.
 
-![uninstall](https://phoenix1747.github.io/host/uninstall.png)
+![uninstall](screenshots/uninstall.png)
 
 If the process was successful, you'll see a confirmation screen - done.
 
