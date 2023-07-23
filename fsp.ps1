@@ -2,7 +2,7 @@
 # This just spawns ping.exe with different names (wireshark.exe, vboxtray.exe, ...)
 #
 # This is the updated version with no system load at all. I might also add some more fake processes in future updates.
-# Maintained by Phoenix1747, get updates and fixes on https://github.com/phoenix1747/fake-sandbox/
+# Maintained by NuclearPhoenixx, get updates and fixes on https://github.com/NuclearPhoenixx/fake-sandbox/
 #
 # Usage (CMD): Powershell -executionpolicy remotesigned -F "C:\Full\Path\To\File\fsp.ps1"
 

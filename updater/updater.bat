@@ -2,7 +2,7 @@
 @echo off
 COLOR 0F
 SET /p v=<"%appdata%\FakeSandboxProcesses\current_version.txt"
-SET uversion=13
+SET uversion=14
 TITLE FSP Updater v%uversion%
 
 :: Wait for internet connection
@@ -18,7 +18,7 @@ if errorlevel==1 goto ping
 
 :: Download updater version number
 echo [*] Getting latest updater version number...
-start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/uversion', '%appdata%\FakeSandboxProcesses\uversion.txt')"
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/NuclearPhoenixx/fake-sandbox/master/updater/uversion', '%appdata%\FakeSandboxProcesses\uversion.txt')"
 
 :: Has the version code changed?
 SET /p nuv=<"%appdata%\FakeSandboxProcesses\uversion.txt"
@@ -27,7 +27,7 @@ del %appdata%\FakeSandboxProcesses\uversion.txt
 
 :: Download FSP version number
 echo [*] Getting latest FSP version number...
-start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/version', '%appdata%\FakeSandboxProcesses\version.txt')"
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/NuclearPhoenixx/fake-sandbox/master/updater/version', '%appdata%\FakeSandboxProcesses\version.txt')"
 
 :: Has the version code changed?
 SET /p nv=<"%appdata%\FakeSandboxProcesses\version.txt"
@@ -41,7 +41,7 @@ msg * A new version (%version%) of Fake Sandbox Processes is available!
 cls
 echo.
 echo Version %version% is now available!
-echo Changelog: https://github.com/Phoenix1747/fake-sandbox/blob/master/Changelog.md
+echo Changelog: https://github.com/NuclearPhoenixx/fake-sandbox/blob/master/Changelog.md
 echo.
 SET /P ANSWER=# Would you like to download and install the update? (y/n): 
 if /i %ANSWER%==y goto install
@@ -51,7 +51,7 @@ goto unrecog
 :new_updater
 echo [*] New updater version found!
 echo [*] Downloading latest updater...
-start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/updater/updater.bat', '%appdata%\FakeSandboxProcesses\updater_new.bat')"
+start /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/NuclearPhoenixx/fake-sandbox/master/updater/updater.bat', '%appdata%\FakeSandboxProcesses\updater_new.bat')"
 if exist %appdata%\FakeSandboxProcesses\updater_new.bat (
 	start /min %appdata%\FakeSandboxProcesses\updater-installer.bat
 	exit
@@ -64,7 +64,7 @@ exit
 del %appdata%\FakeSandboxProcesses\fsp-installer_update.bat
 cls
 echo [*] Downloading...
-start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/Phoenix1747/fake-sandbox/master/installer/fsp-installer.bat', '%appdata%\FakeSandboxProcesses\fsp-installer_update.bat')"
+start /wait /MIN powershell -executionpolicy remotesigned -WindowStyle Hidden -Command "(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/NuclearPhoenixx/fake-sandbox/master/installer/fsp-installer.bat', '%appdata%\FakeSandboxProcesses\fsp-installer_update.bat')"
 if exist %appdata%\FakeSandboxProcesses\fsp-installer_update.bat goto continue
 goto dlerror
 
