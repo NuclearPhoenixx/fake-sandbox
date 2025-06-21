@@ -6,6 +6,8 @@ You can download the original script made by @x0rz [here](https://gist.github.co
 
 You can also download my slightly optimized script from the root directory. The file is named ```fsp.ps1```. This exact script is also used in the FSP installer.
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J61GLR3G)
+
 ---
 
 ### Script-Features
